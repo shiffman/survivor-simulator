@@ -167,6 +167,8 @@ function simulate() {
   tribes[0] = tribe1;
   tribes[1] = tribe2;
   showTribes();
+  getElement('tribe1name').html("Tribe 1");
+  getElement('tribe2name').html("Tribe 2");
 
   
   go();
