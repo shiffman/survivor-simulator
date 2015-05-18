@@ -1,0 +1,161 @@
+
+<head>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> 
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> 
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="github.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
+
+
+  <script language="javascript" type="text/javascript" src="lib/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="lib/p5.dom.js"></script>
+  <script language="javascript" type="text/javascript" src="simulator.js"></script>
+  <style>
+    .markdown-body {
+        min-width: 200px;
+        max-width: 900px;
+        margin: 0 auto;
+        padding-top: 30px;
+    }
+
+    #simulation {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 0px;
+        display: none;
+    }
+    #tribe1 {
+        width: 50%;
+        background: #CCC;
+        float: left;
+        padding: 12px;
+        height: 350px;
+        margin-bottom: 20px;
+    }
+    #tribe2 {
+        float: right;
+        margin-bottom: 20px;
+        width: 50%;
+        background: #AAA;
+        padding: 12px;
+        height: 350px;
+    }
+    #status {
+      width: 100%;
+      padding: 24px;
+      text-align: center;
+      font-size: 16pt;
+      /*font-style: italic;*/
+      font-weight: bold;
+      background: #BBB;
+    }
+
+    #speedslider {
+      width: 200px;
+      margin-top: 12px;
+    }
+
+    #buttons {
+      margin-top: 12px;
+    }
+
+
+
+
+  </style>
+
+</head>
+
+<body>
+<a href="https://github.com/shiffman/s-31-simulator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+  <article class="markdown-body">
+
+  <h1>Survivor Simulator</h1>
+
+  <p>This is a simulator for the game of survivor.</p>
+
+  <p>For more on how this works, <a href="https://github.com/shiffman/s-31-simulator/blob/gh-pages/README.md">visit the read me</a>.  Please feel free <a href="https://github.com/shiffman/s-31-simulator">contribute to the code base here</a> or <a href="https://github.com/shiffman/s-31-simulator/issues">file bug reports and suggestions here</a>.  You can find me on <a href="https://twitter.com/srvrsimulator">twitter</a>.
+
+  <div id="interface">
+    <div id ="buttons">
+      <button id = "once">run it once</button>
+      <button id = "one million">run it one million times</button>
+    </div>
+    <div id="speedslider">simulation speed: <input type='range' min='0' max='100' id='speed'></input></div>
+    <p id = "simspeed">medium</p>
+  </div>
+
+  <div id ="simulation">
+    <div id="status"></div>
+    <div id="tribe1"></div>
+    <div id="tribe2"></div>
+  </div>
+
+
+  <h2>Configure your cast.</h2>
+
+  <div id="women">
+    <table id="womenCastTable">
+      <tbody id="womenCastTableBody">
+        <tr>
+          <th width="25%">women</th>
+          <th>challenge rating<br/>(pre-merge)</th>
+          <th>challenge rating<br/>(post-merge)</th>
+          <th>likeability</th>
+          <th>hot-headedness</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="men">
+    <table id="menCastTable">
+      <tbody id="menCastTableBody">
+        <tr>
+          <th width="25%">men</th>
+          <th>challenge rating<br/>(pre-merge)</th>
+          <th>challenge rating<br/>(post-merge)</th>
+          <th>likeability</th>
+          <th>hot-headedness</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<h2>Configure your season.</h2>
+
+    <p>Total cast: 
+    <select>
+      <option value="20">20</option> 
+    </select> (only cast of 20 supported at the moment).</p>
+    <p>Starting # of tribes: 
+    <select>
+      <option value="2">2</option>
+    </select> (only two tribes supported at the moment)</p>
+    <p>Swap at:
+    <select>
+      <option value="_"></option>
+    </select> (not implemented)</p>
+    
+    <p>Merge at:
+    <select>
+      <option value="12">12</option>
+    </select> (only merge at 12 implemented)</p>
+
+    <p>Jury Size:
+    <select>
+      <option value="9">9</option>
+    </select> (all post merge on jury for now)</p>
+
+    <p>Final:
+    <select>
+      <option value="3">3</option>
+    </select> (only final 3 implemented)</p>
+    
+  </article>
+
+</body>
