@@ -4,8 +4,6 @@ Can Survivor be quantified and simulated?
 
 http://shiffman.net/s-31-simulator/
 
-Overall, here's what I'm thinking, but there are [more specific issues filed here](https://github.com/shiffman/s-31-simulator/issues).
-
 ## Current status:
 
 * As of now, every single choice is random.
@@ -19,6 +17,7 @@ Overall, here's what I'm thinking, but there are [more specific issues filed her
 * Swaps.
 * Hidden Immunity idols.
 * Simulated alliances.
+* [More here](https://github.com/shiffman/s-31-simulator/issues).
 
 ## Overall algorithm
 1. Randomly make two tribes, 5 men and 5 women.
