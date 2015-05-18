@@ -30,7 +30,8 @@ function makeTable(gender) {
     nameCell.parent(row);
 
     // Pre-merge challenge
-    var slider = createSlider(1,10,5);
+    var player = list[i];
+    var slider = createSlider(1,10, player.premerge);
     var div = createDiv(slider.value());
     var cell = createElement('td');
     slider.parent(cell);
@@ -46,7 +47,7 @@ function makeTable(gender) {
     }
 
     // Post-merge challenge
-    var slider = createSlider(1,10,5);
+    var slider = createSlider(1,10,player.postmerge);
     var div = createDiv(slider.value());
     var cell = createElement('td');
     slider.parent(cell);
@@ -56,7 +57,7 @@ function makeTable(gender) {
     slider.elt.oninput = updateCell(div, slider);
 
     // Likeability
-    var slider = createSlider(1,10,5);
+    var slider = createSlider(1,10,player.likeability);
     var div = createDiv(slider.value());
     var cell = createElement('td');
     slider.parent(cell);

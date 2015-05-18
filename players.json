@@ -4,96 +4,144 @@
       "name": "Kelly Wiglesworth",
       "Season": "1, Survivor: Borneo",
       "Age": 37,
-      "Hometown": " Greensboro, NC"
+      "Hometown": " Greensboro, NC",
+      "premerge": 5, 
+      "postmerge": 5,
+      "likeability": 6
     },
     {
       "name": "Kimmi Kappenberg",
       "Season": "2, Survivor: The Australian Outback",
       "Age": 42,
-      "Hometown": " The Woodlands, TX"
+      "Hometown": " The Woodlands, TX",
+      "premerge": 3, 
+      "postmerge": 2,
+      "likeability": 4
     },
     {
       "name": "Teresa T-Bird Cooper",
       "Season": "3, Survivor: Africa",
       "Age": 56,
-      "Hometown": " Jackson, GA"
+      "Hometown": "Jackson, GA",
+      "premerge": 5, 
+      "postmerge": 6,
+      "likeability": 8
     },
     {
       "name": "Peih-Gee Law",
       "Season": "15, Survivor: China",
       "Age": 37,
-      "Hometown": " San Francisco, CA"
+      "Hometown": " San Francisco, CA",
+      "premerge": 3, 
+      "postmerge": 7,
+      "likeability": 5
     },
     {
       "name": "Monica Padilla",
       "Season": "19, Survivor: Samoa",
       "Age": 31,
-      "Hometown": " Queens, NY"
+      "Hometown": " Queens, NY",
+      "premerge": 6, 
+      "postmerge": 6,
+      "likeability": 7
     },
     {
       "name": "Natalie Tenerelli",
       "Season": "22, Survivor: Redemption Island",
       "Age": 24,
-      "Hometown": " Studio City, CA"
+      "Hometown": " Studio City, CA",
+      "premerge": 4, 
+      "postmerge": 7,
+      "likeability": 8
     },
     {
       "name": "Stephanie Valencia",
       "Season": "22, Survivor: Redemption Island",
       "Age": 30,
-      "Hometown": " San Diego, CA"
+      "Hometown": " San Diego, CA",
+      "premerge": 4, 
+      "postmerge": 4,
+      "likeability": 5
     },
     {
       "name": "Mikayla Wingle",
       "Season": "23, Survivor: South Pacific",
       "Age": 25,
-      "Hometown": " Miami, FL"
+      "Hometown": " Miami, FL",
+      "premerge": 6, 
+      "postmerge": 4,
+      "likeability": 4
     },
     {
       "name": "Sabrina Thompson",
       "Season": "24, Survivor: One World",
       "Age": 37,
-      "Hometown": " Brooklyn, NY"
+      "Hometown": " Brooklyn, NY",
+      "premerge": 3, 
+      "postmerge": 3,
+      "likeability": 8
     },
     {
       "name": "Abi-Maria Gomes",
       "Season": "25, Survivor: Philippines",
       "Age": 35,
-      "Hometown": " Los Angeles, CA"
+      "Hometown": " Los Angeles, CA",
+      "premerge": 5, 
+      "postmerge": 4,
+      "likeability": 3
     },
     {
       "name": "Ciera Eastin",
       "Season": "27, Survivor: Blood vs. Water",
       "Age": 26,
-      "Hometown": " Salem, OR"
+      "Hometown": " Salem, OR",
+      "premerge": 6, 
+      "postmerge": 7,
+      "likeability": 7
     },
     {
       "name": "Tasha Fox",
       "Season": "28, Survivor: Cagayan",
       "Age": 38,
-      "Hometown": " St. Louis, MO"
+      "Hometown": " St. Louis, MO",
+      "premerge": 8, 
+      "postmerge": 8,
+      "likeability": 9
     },
     {
       "name": "Kass McQuillen",
       "Season": "28, Survivor: Cagayan",
       "Age": 42,
-      "Hometown": " Tehachapi, CA"
+      "Hometown": " Tehachapi, CA",
+      "premerge": 2, 
+      "postmerge": 2,
+      "likeability": 3
     },
     {
       "name": "Kelley Wentworth",
       "Season": "29, Survivor: San Juan del Sur",
-      "Age": 28
+      "Age": 28,
+      "premerge": 6, 
+      "postmerge": 7,
+      "likeability": 9
     },
     {
       "name": "Shirin Oskooi",
       "Season": "30, Survivor: Worlds Apart",
       "Age": 32,
-      "Hometown": " San Francisco, CA"
+      "Hometown": " San Francisco, CA",
+      "premerge": 2, 
+      "postmerge": 2,
+      "likeability": 5
     },
     {
       "name": "Carolyn Rivera",
       "Season": "30, Survivor: Worlds Apart",
       "Age": 53,
-      "Hometown": " Queens, NY"
+      "Hometown": " Queens, NY",
+      "premerge": 4, 
+      "postmerge": 8,
+      "likeability": 4
     }
   ],
   "men":[
@@ -101,97 +149,145 @@
       "name": "Jeff Varner",
       "Season": "2, The Australian Outback",
       "Age": 49,
-      "Hometown": " Greensboro, NC"
+      "Hometown": " Greensboro, NC",
+      "premerge": 5, 
+      "postmerge": 5,
+      "likeability": 5
     },
     {
       "name": "Andrew Savage",
       "Season": "7, Survivor: Pearl Islands",
       "Age": 51,
-      "Hometown": " San Jose, CA"
+      "Hometown": " San Jose, CA",
+      "premerge": 5, 
+      "postmerge": 5,
+      "likeability": 5
     },
     {
       "name": "Shane Powers",
       "Season": "12, Survivor: Panama",
       "Age": 44,
-      "Hometown": " Los Angeles, CA"
+      "Hometown": " Los Angeles, CA",
+      "premerge": 5, 
+      "postmerge": 5,
+      "likeability": 3
     },
     {
       "name": "Terry Deitz",
       "Season": "12, Survivor: Panama",
       "Age": 55,
-      "Hometown": " Simsbury, CT"
+      "Hometown": " Simsbury, CT",
+      "premerge": 7, 
+      "postmerge": 8,
+      "likeability": 8
     },
     {
       "name": "Stephen Fishbach",
       "Season": "18, Survivor: Tocantins",
       "Age": 36,
-      "Hometown": " New York, NY"
+      "Hometown": " New York, NY",
+      "premerge": 5, 
+      "postmerge": 5,
+      "likeability": 9
     },
     {
       "name": "Jim Rice",
       "Season": "23, Survivor: South Pacific",
       "Age": 39,
-      "Hometown": " Denver, CO"
+      "Hometown": " Denver, CO",
+      "premerge": 7, 
+      "postmerge": 5,
+      "likeability": 4
     },
     {
       "name": "Troyzan Robertson",
       "Season": "24, Survivor: One World",
       "Age": 53,
-      "Hometown": " Miami, FL"
+      "Hometown": " Miami, FL",
+      "premerge": 7, 
+      "postmerge": 7,
+      "likeability": 3
     },
     {
       "name": "Vytas Baskauskas",
       "Season": "27, Survivor: Blood vs. Water",
       "Age": 35,
-      "Hometown": " Santa Monica, CA"
+      "Hometown": " Santa Monica, CA",
+      "premerge": 8, 
+      "postmerge": 8,
+      "likeability": 9
     },
     {
       "name": "Brad Culpepper",
       "Season": "27, Survivor: Blood Vs. Water",
       "Age": 46,
-      "Hometown": " Tampa, FL"
+      "Hometown": " Tampa, FL",
+      "premerge": 8, 
+      "postmerge": 5,
+      "likeability": 3
     },
     {
       "name": "Woo Hwang",
       "Season": "28, Survivor: Cagayan",
       "Age": 31,
-      "Hometown": " Newport Beach, CA"
+      "Hometown": " Newport Beach, CA",
+      "premerge": 9, 
+      "postmerge": 9,
+      "likeability": 7
     },
     {
       "name": "Spencer Bledsoe",
       "Season": "28, Survivor: Cagayan",
       "Age": 22,
-      "Hometown": " Chicago, IL"
+      "Hometown": " Chicago, IL",
+      "premerge": 7, 
+      "postmerge": 9,
+      "likeability": 8
     },
     {
       "name": "Jeremy Collins",
       "Season": "29, Survivor: San Juan del Sur",
       "Age": 37,
-      "Hometown": " Foxboro, MA"
+      "Hometown": " Foxboro, MA",
+      "premerge": 9, 
+      "postmerge": 7,
+      "likeability": 6
     },
     {
       "name": "Keith Nale",
       "Season": "29, Survivor: San Juan del Sur",
       "Age": 54,
-      "Hometown": " Keithville, LA"
+      "Hometown": " Keithville, LA",
+      "premerge": 4, 
+      "postmerge": 7,
+      "likeability": 8
     },
     {
       "name": "Joe Anglim",
       "Season": "30, Survivor: Worlds Apart",
       "Age": 26,
-      "Hometown": " Scottsdale, AZ"
+      "Hometown": "Scottsdale, AZ",
+      "premerge": 9, 
+      "postmerge": 9,
+      "likeability": 9
     },
     {
       "name": "Max Dawson",
       "Season": "30, Survivor: Worlds Apart",
       "Age": 38,
-      "Hometown": " Topanga, CA"
+      "Hometown": "Topanga, CA",
+      "premerge": 8, 
+      "postmerge": 6,
+      "likeability": 4
     },
     {
       "name": "Mike Holloway",
       "Season": "30, Survivor: Worlds Apart",
       "Age": 38,
-      "Hometown": " Ft. Worth, TX"
+      "Hometown": " Ft. Worth, TX",
+      "premerge": 9, 
+      "postmerge": 9,
+      "likeability": 8
     }
   ]
 }
