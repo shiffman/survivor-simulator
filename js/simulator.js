@@ -121,8 +121,33 @@ function go() {
       tribeDivs[0] = getElement('tribe1');
       tribeDivs[1] = getElement('tribe2');
       if (state === 'immunity') {
-        winner = int(random(0,2));
+        
+        // TODO: break this out into a function
+        // Which tribe will win immunity?
+        var total = min(tribes[0].length, tribes[1].length);
+        // sort by challenge skills and use the top players
+        tribes[0].sort(function(a,b) {
+          return b.premerge-a.premerge;
+        });
+        tribes[1].sort(function(a,b) {
+          return b.premerge-a.premerge;
+        });
+        var score0 = 0;
+        var score1 = 0;
+        for (var i = 0; i < total; i++) {
+          score0 += tribes[0][i].premerge;
+          score1 += tribes[1][i].premerge;
+        }
+        var choices = [];
+        for (var i = 0; i < score0; i++) {
+          choices.push(0);
+        }
+        for (var i = 0; i < score1; i++) {
+          choices.push(1);
+        }
+        winner = choices[int(random(0,choices.length))];
         loser = 0;
+
         if (winner === 0) loser = 1;
         //tribeDivs[winner].style('background-color','#00FF00');
         //tribeDivs[loser].style('background-color','#FF0000');
@@ -141,7 +166,17 @@ function go() {
     var tribe = tribes[0];
     if (tribe.length > 3) {
       if (state === 'immunity') {
-        winner = int(random(tribe.length));
+        // TODO: break out into function
+        // Who wins individual immunity?
+        // higher the challenge rating, more likely to win
+        var choices = [];
+        for (var i = 0; i < tribe.length; i++) {
+          var score = tribe[i].postmerge;
+          for (var j = 0; j < score; j++) {
+            choices.push(i);
+          }
+        }
+        winner = choices[int(random(choices.length))];
         var immune = tribe[winner];
         state = 'tribal';
         statusDiv.html(immune.name + ' wins immunity!');
