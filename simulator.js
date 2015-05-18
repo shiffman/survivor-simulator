@@ -80,7 +80,7 @@ function setup() {
     } else if (simSpeed < 80) {
       show.html("medium fast");
     } else {
-      show.html("fast"); 
+      show.html("fast");
     }
   }
   speedSlider.elt.oninput();
@@ -184,6 +184,8 @@ function go() {
       tribes[1] = [];
       statusDiv.html('Tribes are merged.');
       status = 'immunity';
+      getElement('tribe1name').html("Merge tribe");
+      getElement('tribe2name').html("Jury");
     } else {
       var tribeDivs = [];
       tribeDivs[0] = getElement('tribe1');
