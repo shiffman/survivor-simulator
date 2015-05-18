@@ -14,6 +14,7 @@ http://shiffman.net/s-31-simulator/
 
 ## Planned features
 * Implement probabilities based on traits.
+   * [Initial traits](https://github.com/shiffman/s-31-simulator/blob/gh-pages/players.json) - need feature for storing, reloading, linking to a cast.
 * Swaps.
 * Hidden Immunity idols.
 * Simulated alliances.
