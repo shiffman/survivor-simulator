@@ -13,6 +13,7 @@ http://shiffman.net/s-31-simulator/
 * Jury of 9, final 3.
 
 ## Planned features
+* Implement probabilities based on traits.
 * Swaps.
 * Hidden Immunity idols.
 * Simulated alliances.
