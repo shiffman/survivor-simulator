@@ -50,13 +50,6 @@ function makeTable(gender) {
     cell.parent(row);
     slider.id('like_'+i);
 
-    // Hot-headedness
-    var slider = createSlider(1,10,5);
-    var cell = createElement('td',slider.value());
-    slider.parent(cell);
-    cell.parent(row);
-    slider.id('hot_'+i);
-
 
     if (gender === 'women') {
       row.parent('womenCastTableBody');
@@ -130,7 +123,6 @@ function simulate() {
     player.premerge = getElement('premerge_' + num).value();
     player.postmerge = getElement('postmerge_' + num).value();
     player.like = getElement('like_' + num).value();
-    player.hot = getElement('hot_' + num).value();
     if (gender === 'women') {
       women.push(player);
     } else {
