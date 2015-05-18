@@ -6,7 +6,10 @@ http://shiffman.net/s-31-simulator/
 
 ## Current status:
 
-* As of now, every single choice is random.
+* Tribal immunity
+    * Probability of a tribe winning immunity is tied to the sum of each player's "premerge" challenge rating.
+* Individual immunity
+    * Probability of an individual winning immunity is tied to each player's "postmerge" challenge rating. 
 * Select 20 players.
 * 2 tribes.
 * Merge at 12.
