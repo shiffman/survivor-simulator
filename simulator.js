@@ -31,24 +31,39 @@ function makeTable(gender) {
 
     // Pre-merge challenge
     var slider = createSlider(1,10,5);
-    var cell = createElement('td',slider.value());
+    var div = createDiv(slider.value());
+    var cell = createElement('td');
     slider.parent(cell);
+    div.parent(cell);
     cell.parent(row);
     slider.id('premerge_'+i);
+    slider.elt.oninput = updateCell(div, slider);
+
+    function updateCell(div,slider) { 
+      return function() {
+        div.html(slider.value());
+      }
+    }
 
     // Post-merge challenge
     var slider = createSlider(1,10,5);
-    var cell = createElement('td',slider.value());
+    var div = createDiv(slider.value());
+    var cell = createElement('td');
     slider.parent(cell);
+    div.parent(cell);
     cell.parent(row);
     slider.id('postmerge_'+i);
+    slider.elt.oninput = updateCell(div, slider);
 
     // Likeability
     var slider = createSlider(1,10,5);
-    var cell = createElement('td',slider.value());
+    var div = createDiv(slider.value());
+    var cell = createElement('td');
     slider.parent(cell);
+    div.parent(cell);
     cell.parent(row);
     slider.id('like_'+i);
+    slider.elt.oninput = updateCell(div, slider);
 
 
     if (gender === 'women') {
