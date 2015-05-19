@@ -10,7 +10,10 @@ http://shiffman.net/s-31-simulator/
     * Probability of a tribe winning immunity is tied to the sum of each player's "premerge" challenge rating.
 * Individual immunity
     * Probability of an individual winning immunity is tied to each player's "postmerge" challenge rating. 
-* Select 20 players.
+* Being voted out (pre-merge)
+    * Your challenge skill makes you less likely.  Your likeability makes you less likely.
+* Being voted out (post-merge)
+    * Your challenge skill makes you more likely.  Your likeability makes you less likely until there are 6 left, then you are more likely.
 * 2 tribes.
 * Merge at 12.
 * Jury of 9, final 3.
