@@ -85,3 +85,8 @@
   font-weight: bold;
 }
 
+.slidernumber {
+  display: inline;
+  padding-left: 5px;
+}
+

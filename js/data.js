@@ -27,9 +27,6 @@ function sendToParse() {
     }
   }
 
-  console.log(data);
-
-
   var id;
   config.save(data).then(function(result) {
     id = result.id;

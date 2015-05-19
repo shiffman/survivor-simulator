@@ -59,10 +59,13 @@ function makeTable(gender) {
     var slider = createSlider(1, 10, player.premerge);
     var div = createDiv(slider.value());
     var cell = createElement('td');
+    cell.style('text-align','center');
     slider.parent(cell);
     div.parent(cell);
     cell.parent(row);
     div.id(gender+'_premerge_'+i+'_txt');
+    div.class('slidernumber');
+
     slider.id(gender+'_premerge_'+i);
     slider.elt.oninput = updateCell(div, slider, 'premerge');
     // This is how we know which slider is attached to which player
@@ -71,7 +74,9 @@ function makeTable(gender) {
     // Post-merge challenge
     slider = createSlider(1,10,player.postmerge);
     div = createDiv(slider.value());
+    div.class('slidernumber');
     cell = createElement('td');
+    cell.style('text-align','center');
     slider.parent(cell);
     div.parent(cell);
     div.id(gender+'_postmerge_'+i+'_txt');
@@ -83,7 +88,9 @@ function makeTable(gender) {
     // Likeability
     slider = createSlider(1,10,player.likeability);
     div = createDiv(slider.value());
+    div.class('slidernumber');
     cell = createElement('td');
+    cell.style('text-align','center');
     slider.parent(cell);
     div.parent(cell);
     cell.parent(row);
