@@ -23,10 +23,10 @@ function makeTable(gender) {
       preSlider.value(player.premerge);
       postSlider.value(player.postmerge);
       likeSlider.value(player.likeability);
-
-      getElement(gender+'_premerge_'+index+'_txt').value(player.premerge);
-      getElement(gender+'_postmerge_'+index+'_txt').value(player.premerge);
-      getElement(gender+'_like_'+index+'_txt').value(player.premerge);
+      
+      getElement(gender+'_premerge_'+index+'_txt').html(player.premerge);
+      getElement(gender+'_postmerge_'+index+'_txt').html(player.premerge);
+      getElement(gender+'_like_'+index+'_txt').html(player.premerge);
     };
   }
 
