@@ -7,13 +7,13 @@
 
 #simulation {
   width: 100%;
-  display: block;
+  display: none;
   margin-top: 20px;
   font-size: 80%;
 }
 
 #stats {
-  display: inline;
+  display: none;
   background-color: #AAA;
   padding: 12px;
 
