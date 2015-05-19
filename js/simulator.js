@@ -1,6 +1,7 @@
 var simSpeed;
 
 var playerlookup = {};
+var playerlist = [];
 
 function preload() {
   players = loadJSON('players.json');
@@ -10,23 +11,9 @@ function setup() {
   noCanvas();
 
   var speedSlider = getElement('speed');
-  speedSlider.value(80);
   simSpeed = speedSlider.value();
-
   speedSlider.elt.oninput = function() {
     simSpeed = this.value;
-    var show = getElement('simspeed');
-    if (simSpeed < 20) {
-      show.html("slow");
-    } else if (simSpeed < 40) {
-      show.html("medium slow");
-    } else if (simSpeed < 60) {
-      show.html("medium");
-    } else if (simSpeed < 80) {
-      show.html("medium fast");
-    } else {
-      show.html("fast");
-    }
   };
   speedSlider.elt.oninput();
   
@@ -35,10 +22,19 @@ function setup() {
   for (var i = 0; i < players.men.length; i++) {
     playerlookup[players.men[i].id] = players.men[i];
     playerlookup[players.women[i].id] = players.women[i];
+
+    // add some properties
+    players.men[i].totalWins = 0;
+    players.women[i].totalWins = 0;
+
+    playerlist.push(players.men[i]);
+    playerlist.push(players.women[i]);
+     
   }
   makeTable('women');
   makeTable('men');
-  getElement('once').mousePressed(simulate);
+  getElement('once').mousePressed(runonce);
+  getElement('loop').mousePressed(loopIt);
 }
 
 
@@ -47,6 +43,24 @@ var merged;
 var winner;
 var loser;
 var state;
+
+var looping = false;
+
+function loopIt() {
+  if (looping) {
+    looping = false;
+    this.html('RUN CONTINUOUSLY');
+  } else {
+    looping = true;
+    this.html('STOP SIMULATION');
+    simulate();
+  }
+}
+
+function runonce() {
+  looping = false;
+  simulate();
+}
 
 function simulate() {
   tribes = [];
@@ -122,43 +136,19 @@ function go() {
       tribeDivs[1] = getElement('tribe2');
       if (state === 'immunity') {
         
-        // TODO: break this out into a function
-        // Which tribe will win immunity?
-        var total = min(tribes[0].length, tribes[1].length);
-        // sort by challenge skills and use the top players
-        tribes[0].sort(function(a,b) {
-          return b.premerge-a.premerge;
-        });
-        tribes[1].sort(function(a,b) {
-          return b.premerge-a.premerge;
-        });
-        var score0 = 0;
-        var score1 = 0;
-        for (var i = 0; i < total; i++) {
-          score0 += tribes[0][i].premerge;
-          score1 += tribes[1][i].premerge;
-        }
-        var choices = [];
-        for (var i = 0; i < score0; i++) {
-          choices.push(0);
-        }
-        for (var i = 0; i < score1; i++) {
-          choices.push(1);
-        }
-        winner = choices[int(random(0,choices.length))];
+        winner = tribalImmunity(tribes);
         loser = 0;
-
         if (winner === 0) loser = 1;
         //tribeDivs[winner].style('background-color','#00FF00');
         //tribeDivs[loser].style('background-color','#FF0000');
         state = 'tribal';
         statusDiv.html('Tribe ' + (winner+1) + ' wins immunity!');
       } else if (state === 'tribal') {
-        var tribe = tribes[loser];
-        var pick = int(random(tribe.length));
-        var votedout = tribe[pick];
-        tribe.splice(pick,1);
-        statusDiv.html(votedout.name + ' voted out at tribal council!');
+        var losingTribe = tribes[loser];
+        var pick = voting(tribes[loser]);
+        var out = losingTribe[pick];
+        losingTribe.splice(pick,1);
+        statusDiv.html(out.name + ' voted out at tribal council!');
         state = 'immunity';
       }
     }
@@ -166,25 +156,16 @@ function go() {
     var tribe = tribes[0];
     if (tribe.length > 3) {
       if (state === 'immunity') {
-        // TODO: break out into function
-        // Who wins individual immunity?
-        // higher the challenge rating, more likely to win
-        var choices = [];
-        for (var i = 0; i < tribe.length; i++) {
-          var score = tribe[i].postmerge;
-          for (var j = 0; j < score; j++) {
-            choices.push(i);
-          }
-        }
-        winner = choices[int(random(choices.length))];
+        winner = individualImmunity(tribe);
         var immune = tribe[winner];
         state = 'tribal';
         statusDiv.html(immune.name + ' wins immunity!');
       } else if (state === 'tribal') {
+        // TODO: break this out into selection function?
         var immune = tribe[winner];
         var tribecopy = tribe.slice();
         tribecopy.splice(winner,1);
-        var out = int(random(tribecopy.length));
+        var out = voting(tribecopy);
         var votedout = tribecopy[out];
         tribecopy.splice(out,1);
         tribes[0] = tribecopy;
@@ -195,16 +176,8 @@ function go() {
       }
     } else {
       if (state === 'final') {
-        for (var i = 0; i < tribe[1].length; i++) {
-          var vote = int(random(3));
-          tribe[0][vote].vote++;
-        }
-        var soleSurvivor = tribes[0][1];
-        for (var i = 1; i < tribes[0].length; i++) {
-          if (tribes[0][i].vote > winner.vote) {
-            soleSurvivor = tribes[0][i];
-          }
-        }
+        var soleSurvivor = votingWinner(tribes[0],tribes[1]);
+        soleSurvivor.totalWins++;
         statusDiv.html("The sole survivor is " + soleSurvivor.name + "!");
         state = 'gameover';
       } else {
@@ -214,10 +187,15 @@ function go() {
     }
   }
   showTribes();
-  var wait = map(simSpeed,1,100,1000,10);
-  if (!merged) {
-    setTimeout(go,wait);
-  } else if (state !== 'gameover') {
+  var wait = map(simSpeed,1,100,1000,0);
+  // finished
+  if (state === 'gameover') {
+    if (looping) {
+      // restarts the whole thing
+      simulate();
+    }
+  // In all other scenarios, advance the game one week
+  } else {
     setTimeout(go,wait);
   }
 }

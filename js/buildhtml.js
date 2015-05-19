@@ -108,10 +108,30 @@ function showTribes() {
     elts[i].remove();
   }
 
-  for (var i = 0; i < tribes[0].length; i++) {
+  for (i = 0; i < tribes[0].length; i++) {
     createDiv(tribes[0][i].name).parent('tribe1').class('playerlisting');
   }
-  for (var i = 0; i < tribes[1].length; i++) {
+  for (i = 0; i < tribes[1].length; i++) {
     createDiv(tribes[1][i].name).parent('tribe2').class('playerlisting');
   }
+
+
+
+  for (i = 0; i < playerlist.length; i++) {
+    playerlist[i].position = i;
+  }
+
+  playerlist.sort(function(a, b) {
+    if (b.totalWins === a.totalWins) {
+      return a.position - b.position;
+    } else {
+      return b.totalWins - a.totalWins;
+    }
+  });
+
+  for (i = 0; i < 12; i++) {
+    createDiv(playerlist[i].name + ': ' + playerlist[i].totalWins).parent('overall').class('playerlisting');
+  }
+
+
 }
