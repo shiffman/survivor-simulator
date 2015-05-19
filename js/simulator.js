@@ -3,6 +3,8 @@ var simSpeed;
 var playerlookup = {};
 var playerlist = [];
 
+var totalSims = 0;
+
 function preload() {
   players = loadJSON('players.json');
 }
@@ -22,15 +24,22 @@ function setup() {
   for (var i = 0; i < players.men.length; i++) {
     playerlookup[players.men[i].id] = players.men[i];
     playerlookup[players.women[i].id] = players.women[i];
-
-    // add some properties
-    players.men[i].totalWins = 0;
-    players.women[i].totalWins = 0;
-
     playerlist.push(players.men[i]);
     playerlist.push(players.women[i]);
-     
   }
+
+  for (i = 0; i < playerlist.length; i++) {
+    playerlist[i].totalWins = 0;
+    playerlist[i].teamWins = 0;
+    playerlist[i].immunities = 0;
+    playerlist[i].merges = 0;
+    playerlist[i].placement = 0;
+    playerlist[i].sumplace = 0;
+    playerlist[i].avgplace = 0;
+    playerlist[i].playing = false;
+  }
+
+
   makeTable('women');
   makeTable('men');
   getElement('once').mousePressed(runonce);
@@ -43,6 +52,8 @@ var merged;
 var winner;
 var loser;
 var state;
+
+var week = 1;
 
 var looping = false;
 
@@ -63,11 +74,14 @@ function runonce() {
 }
 
 function simulate() {
+  totalSims++;
+
   tribes = [];
   merged = false;
   state = 'immunity';
   winner = -1;
   loser = -1;
+  week = 1;
 
   getElement('simulation').show();
   
@@ -82,6 +96,7 @@ function simulate() {
     }
     var name = getElement(gender + '_' + num);
     var player = playerlookup[name.value()];
+    player.playing = true;
     if (gender === 'women') {
       women.push(player);
     } else {
@@ -125,6 +140,10 @@ function go() {
       for (var i = 0; i < tribes[1].length; i++) {
         tribes[0].push(tribes[1][i]);
       }
+      // Everyone makes the merge!
+      for (var i = 0; i < tribes[0].length; i++) {
+        tribes[0][i].merges++;
+      }
       tribes[1] = [];
       statusDiv.html('Tribes are merged.');
       state = 'immunity';
@@ -137,6 +156,11 @@ function go() {
       if (state === 'immunity') {
         
         winner = tribalImmunity(tribes);
+        // Everybody gets a team win!
+        for (var i = 0; i < tribes[winner].length; i++) {
+          tribes[winner][i].teamWins++;
+        }
+
         loser = 0;
         if (winner === 0) loser = 1;
         //tribeDivs[winner].style('background-color','#00FF00');
@@ -146,7 +170,14 @@ function go() {
       } else if (state === 'tribal') {
         var losingTribe = tribes[loser];
         var pick = voting(tribes[loser]);
+        
+        // TODO: break out being voted out to function
         var out = losingTribe[pick];
+        out.placement = 21 - week;
+        out.sumplace += out.placement;
+        out.avgplace = out.sumplace / totalSims;
+        week++;
+
         losingTribe.splice(pick,1);
         statusDiv.html(out.name + ' voted out at tribal council!');
         state = 'immunity';
@@ -158,6 +189,7 @@ function go() {
       if (state === 'immunity') {
         winner = individualImmunity(tribe);
         var immune = tribe[winner];
+        immune.immunities++;
         state = 'tribal';
         statusDiv.html(immune.name + ' wins immunity!');
       } else if (state === 'tribal') {
@@ -166,7 +198,14 @@ function go() {
         var tribecopy = tribe.slice();
         tribecopy.splice(winner,1);
         var out = voting(tribecopy);
+
+        // TODO: break out being voted out to function
         var votedout = tribecopy[out];
+        votedout.placement = 21 - week;
+        votedout.sumplace += votedout.placement;
+        votedout.avgplace = votedout.sumplace / totalSims;
+        week++;
+        
         tribecopy.splice(out,1);
         tribes[0] = tribecopy;
         tribes[0].push(immune);

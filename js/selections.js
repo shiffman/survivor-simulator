@@ -1,30 +1,78 @@
 
-function voting(tribe) {
-  // A coin flip right now
-  return int(random(tribe.length));
+function voting(tribe, merged) {
+  
+  var choices = [];
+  if (!merged) {
+    for (var i = 0; i < tribe.length; i++) {
+      var player = tribe[i];
+      // Less chance of being voted out if you are good at challenges
+      for (var n = 0; n < 10-player.premerge; n++) {
+        choices.push(i);
+      }
+      // Less chance of being voted out if you are likeable
+      for (n = 0; n < 10-player.like; n++) {
+        choices.push(i);
+      }
+    }
+    return choices[int(random(choices.length))];
+  } else {
+    for (var i = 0; i < tribe.length; i++) {
+      var player = tribe[i];
+      // More chance of being voted out if you are good at challenges
+      for (var n = 0; n < player.postmerge; n++) {
+        choices.push(i);
+      }
+      // When there are 6 or more
+      if (tribe.length > 6) {
+        // Less chance of being voted out if you are likeable
+        for (n = 0; n < 10-player.like; n++) {
+          choices.push(i);
+        }
+      } else {
+        // More chance of being voted out if you are likeable
+        for (n = 0; n < player.like; n++) {
+          choices.push(i);
+        }
+      }
+    }
+  }
+  return choices[int(random(choices.length))];
 }
 
 
 function votingWinner(finalthree, jury) {
   // Start with 0 votes
+  var choices = [];
   for (var i = 0; i < finalthree.length; i++) {
     finalthree[i].voteCount = 0;
+    // More chances to be voted for the more likeable you are
+    for (var n = 0; n < finalthree[i].likeability; n++) {
+      choices.push(i);
+    }
   }
-  // The jury randomly votes
-  // TODO: add probability/logic
+
+  // Vote
   for (i = 0; i < jury.length; i++) {
-    var vote = int(random(3));
+    var vote = choices[int(random(choices.length))];
     finalthree[vote].voteCount++;
   }
 
-  // Who has the most votes?
-  // TODO: deal with ties
+  // Sort by votes
+  finalthree.sort(function(a,b) {
+    return b.voteCount - a.voteCount;
+  });
+  
+  // Winner and placement
   var soleSurvivor = finalthree[0];
-  for (i = 1; i < finalthree.length; i++) {
-    if (finalthree.voteCount > soleSurvivor.voteCount) {
-      soleSurvivor = finalthree[i];
-    }
+  soleSurvivor.placement = 1;
+  finalthree[1].placement = 2;
+  finalthree[2].placement = 3;
+
+  for (i = 0; i < finalthree.length; i++) {
+    finalthree[i].sumplace += finalthree[i].placement;
+    finalthree[i].avgplace = finalthree[i].sumplace / totalSims;
   }
+
   return soleSurvivor;
 }
 

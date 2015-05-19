@@ -115,22 +115,44 @@ function showTribes() {
     createDiv(tribes[1][i].name).parent('tribe2').class('playerlisting');
   }
 
-
-
   for (i = 0; i < playerlist.length; i++) {
     playerlist[i].position = i;
   }
+  
+  // // by total wins
+  // playerlist.sort(function(a, b) {
+  //   if (b.totalWins === a.totalWins) {
+  //     return a.position - b.position;
+  //   } else {
+  //     return b.totalWins - a.totalWins;
+  //   }
+  // });
 
+  // by avg finish
   playerlist.sort(function(a, b) {
-    if (b.totalWins === a.totalWins) {
+    if (b.avgplace === a.avgplace) {
       return a.position - b.position;
     } else {
-      return b.totalWins - a.totalWins;
+      return a.avgplace - b.avgplace;
     }
   });
+  
+  for (i = 0; i < playerlist.length; i++) {
+    var player = playerlist[i];
+    if (player.playing) {
+      var row = createElement('tr');
+      row.parent('statsTable');
+      row.class('playerlisting');
+      createElement('td',player.name).parent(row);
+      createElement('td',player.totalWins).parent(row);
+      createElement('td',player.avgplace.toFixed(2)).parent(row);
 
-  for (i = 0; i < 12; i++) {
-    createDiv(playerlist[i].name + ': ' + playerlist[i].totalWins).parent('overall').class('playerlisting');
+      var mergeFreq = 100 * player.merges / totalSims;
+      createElement('td',mergeFreq.toFixed(2) + '%').parent(row);
+
+      createElement('td',player.immunities).parent(row);
+      createElement('td',player.teamWins).parent(row);
+    }
   }
 
 
