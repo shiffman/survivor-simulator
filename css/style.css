@@ -7,16 +7,16 @@
 
 #simulation {
   width: 100%;
-  display: none;
+  display: block;
   margin-top: 20px;
   font-size: 80%;
-  height: 388px;
 }
 
 #stats {
-  display: none;
+  display: inline;
   background-color: #AAA;
   padding: 12px;
+
 }
 
 #status {
@@ -36,6 +36,7 @@
   height: 320px;
   background-color: #CCC;
   padding: 0 12 0 12;
+  margin-bottom: 10px;
 }
 
 #tribe2 {

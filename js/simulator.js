@@ -16,6 +16,19 @@ function setup() {
   getElement('loop').mousePressed(loopIt);
   getElement('save').mousePressed(sendToParse);
 
+  getElement('hidetribeslink').mousePressed(function() {
+    getElement('hidetribes').hide();
+    getElement('showtribes').show();
+    getElement('tribe1').hide();
+    getElement('tribe2').hide();
+  });
+
+  getElement('showtribeslink').mousePressed(function() {
+    getElement('showtribes').hide();
+    getElement('hidetribes').show();
+    getElement('tribe1').show();
+    getElement('tribe2').show();
+  });
 
  
 }
