@@ -7,44 +7,62 @@
 
 #simulation {
   width: 100%;
-  height: 400px;
   margin-top: 20px;
   margin-bottom: 20px;
-  padding: 0px;
   display: none;
+  font-size: 80%;
 }
-#tribe1 {
-  width: 50%;
-  background: #CCC;
-  float: left;
-  padding: 12px;
-  height: 400px;
-  margin-bottom: 20px;
-}
-#tribe2 {
-  float: right;
-  margin-bottom: 20px;
-  width: 50%;
-  background: #AAA;
-  padding: 12px;
-  height: 400px;
-}
+
 #status {
   width: 100%;
   padding: 24px;
+  color: #FFF;
   text-align: center;
   font-size: 16pt;
   /*font-style: italic;*/
   font-weight: bold;
-  background: #BBB;
+  background-color: #333;
 }
+
+.tribe {
+  width: 50%; /*should be 33.33% but doing more exact math now*/
+  float: left;
+  height: 320px;
+  background-color: #CCC;
+  padding: 0 12 0 12;
+}
+
+#tribe2 {
+  float: right;
+  background-color: #BBB;
+}
+
+#overall {
+  width: 100%;
+  height: 320px;
+  background-color: #DDD;
+  margin-bottom:20px;
+}
+
 
 #speedslider {
   width: 200px;
   margin-top: 12px;
+  display: inline;
+}
+
+#speed {
+  width: 100px;
+  display: inline;
 }
 
 #buttons {
-  margin-top: 12px;
+  display: inline;
+}
+
+.run {
+  padding: 12px;
+  margin-right: 12px;
+  font-weight: bold;
 }
 
