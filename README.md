@@ -2,7 +2,7 @@
 
 Can Survivor be quantified and simulated?
 
-http://shiffman.net/s-31-simulator/
+http://survivorsimulator.com
 
 ## Current status:
 
