@@ -84,6 +84,7 @@ function simulate() {
   week = 1;
 
   getElement('simulation').show();
+  getElement('stats').show();
   
   var women = [];
   var men = [];
