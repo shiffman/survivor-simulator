@@ -34,7 +34,7 @@ function sendToParse() {
     getElement('share').show();
 
     var linky = getElement('permalink');
-    var url = 'http://shiffman.net/s-31-simulator/?id='+id;
+    var url = 'http://survivorsimulator.com/?id='+id;
 
     linky.html('<a href="' + url +'">' + url +'</a>');
 
