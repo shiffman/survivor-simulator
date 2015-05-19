@@ -8,7 +8,8 @@
       "Hometown": " Greensboro, NC",
       "premerge": 5, 
       "postmerge": 5,
-      "likeability": 6
+      "likeability": 6,
+      "gender": "female"
     },
     {
       "id": 2,
@@ -18,7 +19,8 @@
       "Hometown": " The Woodlands, TX",
       "premerge": 3, 
       "postmerge": 2,
-      "likeability": 4
+      "likeability": 4,
+      "gender": "female"
     },
     {
       "id": 3,
@@ -28,7 +30,8 @@
       "Hometown": "Jackson, GA",
       "premerge": 5, 
       "postmerge": 6,
-      "likeability": 8
+      "likeability": 8,
+      "gender": "female"
     },
     {
       "id": 4,
@@ -38,7 +41,8 @@
       "Hometown": " San Francisco, CA",
       "premerge": 3, 
       "postmerge": 7,
-      "likeability": 5
+      "likeability": 5,
+      "gender": "female"
     },
     {
       "id": 5,
@@ -48,7 +52,8 @@
       "Hometown": " Queens, NY",
       "premerge": 6, 
       "postmerge": 6,
-      "likeability": 7
+      "likeability": 7,
+      "gender": "female"
     },
     {
       "id": 6,
@@ -58,7 +63,8 @@
       "Hometown": " Studio City, CA",
       "premerge": 4, 
       "postmerge": 7,
-      "likeability": 8
+      "likeability": 8,
+      "gender": "female"
     },
     {
       "id": 7,
@@ -68,7 +74,8 @@
       "Hometown": " San Diego, CA",
       "premerge": 4, 
       "postmerge": 4,
-      "likeability": 5
+      "likeability": 5,
+      "gender": "female"
     },
     {
       "id": 8,
@@ -78,7 +85,8 @@
       "Hometown": " Miami, FL",
       "premerge": 6, 
       "postmerge": 4,
-      "likeability": 4
+      "likeability": 4,
+      "gender": "female"
     },
     {
       "id": 9,
@@ -88,7 +96,8 @@
       "Hometown": " Brooklyn, NY",
       "premerge": 3, 
       "postmerge": 3,
-      "likeability": 8
+      "likeability": 8,
+      "gender": "female"
     },
     {
       "id": 10,
@@ -98,7 +107,8 @@
       "Hometown": " Los Angeles, CA",
       "premerge": 5, 
       "postmerge": 4,
-      "likeability": 3
+      "likeability": 3,
+      "gender": "female"
     },
     {
       "id": 11,
@@ -108,7 +118,8 @@
       "Hometown": " Salem, OR",
       "premerge": 6, 
       "postmerge": 7,
-      "likeability": 7
+      "likeability": 7,
+      "gender": "female"
     },
     {
       "id": 12,
@@ -118,7 +129,8 @@
       "Hometown": " St. Louis, MO",
       "premerge": 8, 
       "postmerge": 8,
-      "likeability": 9
+      "likeability": 9,
+      "gender": "female"
     },
     {
       "id": 13,
@@ -128,7 +140,8 @@
       "Hometown": " Tehachapi, CA",
       "premerge": 2, 
       "postmerge": 2,
-      "likeability": 3
+      "likeability": 3,
+      "gender": "female"
     },
     {
       "id": 14,
@@ -137,7 +150,8 @@
       "Age": 28,
       "premerge": 6, 
       "postmerge": 7,
-      "likeability": 9
+      "likeability": 9,
+      "gender": "female"
     },
     {
       "id": 15,
@@ -147,7 +161,8 @@
       "Hometown": " San Francisco, CA",
       "premerge": 2, 
       "postmerge": 2,
-      "likeability": 5
+      "likeability": 5,
+      "gender": "female"
     },
     {
       "id": 16,
@@ -157,7 +172,8 @@
       "Hometown": " Queens, NY",
       "premerge": 4, 
       "postmerge": 8,
-      "likeability": 4
+      "likeability": 4,
+      "gender": "female"
     }
   ],
   "men":[
@@ -169,7 +185,8 @@
       "Hometown": " Greensboro, NC",
       "premerge": 5, 
       "postmerge": 5,
-      "likeability": 5
+      "likeability": 5,
+      "gender": "male"
     },
     {
       "id": 18,
@@ -179,7 +196,8 @@
       "Hometown": " San Jose, CA",
       "premerge": 5, 
       "postmerge": 5,
-      "likeability": 5
+      "likeability": 5,
+      "gender": "male"
     },
     {
       "id": 19,
@@ -189,7 +207,8 @@
       "Hometown": " Los Angeles, CA",
       "premerge": 5, 
       "postmerge": 5,
-      "likeability": 3
+      "likeability": 3,
+      "gender": "male"
     },
     {
       "id": 20,
@@ -199,7 +218,8 @@
       "Hometown": " Simsbury, CT",
       "premerge": 7, 
       "postmerge": 8,
-      "likeability": 8
+      "likeability": 8,
+      "gender": "male"
     },
     {
       "id": 21,
@@ -209,7 +229,8 @@
       "Hometown": " New York, NY",
       "premerge": 5, 
       "postmerge": 5,
-      "likeability": 9
+      "likeability": 9,
+      "gender": "male"
     },
     {
       "id": 22,
@@ -219,7 +240,8 @@
       "Hometown": " Denver, CO",
       "premerge": 7, 
       "postmerge": 5,
-      "likeability": 4
+      "likeability": 4,
+      "gender": "male"
     },
     {
       "id": 23,
@@ -229,7 +251,8 @@
       "Hometown": " Miami, FL",
       "premerge": 7, 
       "postmerge": 7,
-      "likeability": 3
+      "likeability": 3,
+      "gender": "male"
     },
     {
       "id": 24,
@@ -239,7 +262,8 @@
       "Hometown": " Santa Monica, CA",
       "premerge": 8, 
       "postmerge": 8,
-      "likeability": 9
+      "likeability": 9,
+      "gender": "male"
     },
     {
       "id": 25,
@@ -249,7 +273,8 @@
       "Hometown": " Tampa, FL",
       "premerge": 8, 
       "postmerge": 5,
-      "likeability": 3
+      "likeability": 3,
+      "gender": "male"
     },
     {
       "id": 26,
@@ -259,7 +284,8 @@
       "Hometown": " Newport Beach, CA",
       "premerge": 9, 
       "postmerge": 9,
-      "likeability": 7
+      "likeability": 7,
+      "gender": "male"
     },
     {
       "id": 27,
@@ -269,7 +295,8 @@
       "Hometown": " Chicago, IL",
       "premerge": 7, 
       "postmerge": 9,
-      "likeability": 8
+      "likeability": 8,
+      "gender": "male"
     },
     {
       "id": 28,
@@ -279,7 +306,8 @@
       "Hometown": " Foxboro, MA",
       "premerge": 9, 
       "postmerge": 7,
-      "likeability": 6
+      "likeability": 6,
+      "gender": "male"
     },
     {
       "id": 29,
@@ -289,7 +317,8 @@
       "Hometown": " Keithville, LA",
       "premerge": 4, 
       "postmerge": 7,
-      "likeability": 8
+      "likeability": 8,
+      "gender": "male"
     },
     {
       "id": 30,
@@ -299,7 +328,8 @@
       "Hometown": "Scottsdale, AZ",
       "premerge": 9, 
       "postmerge": 9,
-      "likeability": 9
+      "likeability": 9,
+      "gender": "male"
     },
     {
       "id": 31,
@@ -309,7 +339,8 @@
       "Hometown": "Topanga, CA",
       "premerge": 8, 
       "postmerge": 6,
-      "likeability": 4
+      "likeability": 4,
+      "gender": "male"
     },
     {
       "id": 32,
@@ -319,7 +350,8 @@
       "Hometown": " Ft. Worth, TX",
       "premerge": 9, 
       "postmerge": 9,
-      "likeability": 8
+      "likeability": 8,
+      "gender": "male"
     }
   ]
 }

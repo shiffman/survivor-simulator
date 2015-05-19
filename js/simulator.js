@@ -5,47 +5,23 @@ var playerlist = [];
 
 var totalSims = 0;
 
-function preload() {
-  players = loadJSON('players.json');
-}
-
 function setup() {
-  noCanvas();
+  // Initializing parse
+  Parse.initialize("26LC5jbUOlEdJE279EcxTuMZskZBiOvlmrYia715", "46bI6Y2aMNXkCXeoYOJ5DnlLCCZsxWX6W9xmAEB8");  noCanvas();
 
-  var speedSlider = getElement('speed');
-  simSpeed = speedSlider.value();
-  speedSlider.elt.oninput = function() {
-    simSpeed = this.value;
-  };
-  speedSlider.elt.oninput();
+  // Loading a saved config?
+  loadConfig();
   
-  // A lookup by id object
-  // only works b/c same # of men and women
-  for (var i = 0; i < players.men.length; i++) {
-    playerlookup[players.men[i].id] = players.men[i];
-    playerlookup[players.women[i].id] = players.women[i];
-    playerlist.push(players.men[i]);
-    playerlist.push(players.women[i]);
-  }
-
-  for (i = 0; i < playerlist.length; i++) {
-    playerlist[i].totalWins = 0;
-    playerlist[i].teamWins = 0;
-    playerlist[i].immunities = 0;
-    playerlist[i].merges = 0;
-    playerlist[i].placement = 0;
-    playerlist[i].sumplace = 0;
-    playerlist[i].avgplace = 0;
-    playerlist[i].playing = false;
-  }
-
-
-  makeTable('women');
-  makeTable('men');
   getElement('once').mousePressed(runonce);
   getElement('loop').mousePressed(loopIt);
-}
+  getElement('save').mousePressed(sendToParse);
 
+
+ 
+}
+// function preload() {
+//   players = loadJSON('players.json');
+// }
 
 var tribes;
 var merged;

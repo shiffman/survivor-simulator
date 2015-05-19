@@ -1,7 +1,7 @@
 
 <head>
-  <!--<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> 
-  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> 
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> 
+  <!--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -9,10 +9,12 @@
   <link rel="stylesheet" href="css/github.css">
   <link rel="stylesheet" href="css/style.css">
 
+  <script src="//www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 
   <script language="javascript" type="text/javascript" src="lib/p5.js"></script>
   <script language="javascript" type="text/javascript" src="lib/p5.dom.js"></script>
   <!--<script language="javascript" type="text/javascript" src="js/player.js"></script>-->
+  <script language="javascript" type="text/javascript" src="js/data.js"></script>
   <script language="javascript" type="text/javascript" src="js/selections.js"></script>
   <script language="javascript" type="text/javascript" src="js/buildhtml.js"></script>
   <script language="javascript" type="text/javascript" src="js/simulator.js"></script>
@@ -34,9 +36,25 @@
     <div id ="buttons">
       <button id = "once" class="run">RUN ONCE</button>
       <button id = "loop" class="run">RUN CONTINUOUSLY</button>
+      <div id="speedslider">slow <input type='range' min='0' max='100' value='100' id='speed'> fast</input></div>
+      <button id = "save" class="run">SAVE THIS CONFIGURATION</button>
     </div>
-    <div id="speedslider">slow <input type='range' min='0' max='100' value='100' id='speed'> fast</input></div>
-<!--     <p id = "simspeed">medium</p>-->  </div>
+ </div>
+
+ <div id="share">
+
+    <p>You can copy the link below to revisit this configuration at any time:<br/><span id="permalink"></span><br/>
+
+    <div id="twitterbutton"></div>
+    </p>
+    
+
+ </div>
+
+ <div id="hidden">
+<a href="https://twitter.com/share" id ="twittertemplate" class="twitter-share-button" data-url="http://customizethis" data-text="And the winner of Simulated Survivor is..." data-via="srvrsimulator" data-size="default" data-hashtags="survivor">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+ </div>
 
   <div id ="simulation">
     <div id="status"></div>

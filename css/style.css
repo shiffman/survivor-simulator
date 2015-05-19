@@ -54,10 +54,19 @@
   font-size: 75%;
 }
 
+#share, #hidden {
+  margin-top: 8px;
+  padding: 6 12 6 12;
+  font-size: 80%;
+  background-color: #EEE;
+  margin-left: 438px;
+  display: none;
+}
+
 
 #speedslider {
   width: 200px;
-  margin-top: 12px;
+  margin: 12px 12px 0 12px;
   display: inline;
 }
 
@@ -72,7 +81,6 @@
 
 .run {
   padding: 12px;
-  margin-right: 12px;
   font-weight: bold;
 }
 
