@@ -11,7 +11,7 @@ function setup() {
 
   // Loading a saved config?
   loadConfig();
-  
+
   getElement('once').mousePressed(runonce);
   getElement('loop').mousePressed(loopIt);
   getElement('save').mousePressed(sendToParse);
@@ -192,6 +192,7 @@ function go() {
       }
     } else {
       if (state === 'final') {
+        getElement('tribe1name').html("Final Three");
         var soleSurvivor = votingWinner(tribes[0],tribes[1]);
         soleSurvivor.totalWins++;
         statusDiv.html("The sole survivor is " + soleSurvivor.name + "!");
