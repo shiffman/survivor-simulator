@@ -6,8 +6,8 @@
       "Season": "1, Survivor: Borneo",
       "Age": 37,
       "Hometown": " Greensboro, NC",
-      "premerge": 5, 
-      "postmerge": 5,
+      "premerge": 6, 
+      "postmerge": 4,
       "likeability": 6,
       "gender": "female"
     },
@@ -19,7 +19,7 @@
       "Hometown": " The Woodlands, TX",
       "premerge": 3, 
       "postmerge": 2,
-      "likeability": 4,
+      "likeability": 5,
       "gender": "female"
     },
     {
@@ -105,7 +105,7 @@
       "Season": "25, Survivor: Philippines",
       "Age": 35,
       "Hometown": " Los Angeles, CA",
-      "premerge": 5, 
+      "premerge": 4, 
       "postmerge": 4,
       "likeability": 3,
       "gender": "female"
@@ -127,7 +127,7 @@
       "Season": "28, Survivor: Cagayan",
       "Age": 38,
       "Hometown": " St. Louis, MO",
-      "premerge": 8, 
+      "premerge": 9, 
       "postmerge": 8,
       "likeability": 9,
       "gender": "female"
@@ -148,8 +148,8 @@
       "name": "Kelley Wentworth",
       "Season": "29, Survivor: San Juan del Sur",
       "Age": 28,
-      "premerge": 6, 
-      "postmerge": 7,
+      "premerge": 7, 
+      "postmerge": 8,
       "likeability": 9,
       "gender": "female"
     },
@@ -159,9 +159,9 @@
       "Season": "30, Survivor: Worlds Apart",
       "Age": 32,
       "Hometown": " San Francisco, CA",
-      "premerge": 2, 
+      "premerge": 5, 
       "postmerge": 2,
-      "likeability": 5,
+      "likeability": 7,
       "gender": "female"
     },
     {
@@ -171,7 +171,7 @@
       "Age": 53,
       "Hometown": " Queens, NY",
       "premerge": 4, 
-      "postmerge": 8,
+      "postmerge": 7,
       "likeability": 4,
       "gender": "female"
     }
@@ -183,9 +183,9 @@
       "Season": "2, The Australian Outback",
       "Age": 49,
       "Hometown": " Greensboro, NC",
-      "premerge": 5, 
-      "postmerge": 5,
-      "likeability": 5,
+      "premerge": 7, 
+      "postmerge": 4,
+      "likeability": 4,
       "gender": "male"
     },
     {
@@ -194,9 +194,9 @@
       "Season": "7, Survivor: Pearl Islands",
       "Age": 51,
       "Hometown": " San Jose, CA",
-      "premerge": 5, 
-      "postmerge": 5,
-      "likeability": 5,
+      "premerge": 6, 
+      "postmerge": 4,
+      "likeability": 6,
       "gender": "male"
     },
     {
@@ -205,9 +205,9 @@
       "Season": "12, Survivor: Panama",
       "Age": 44,
       "Hometown": " Los Angeles, CA",
-      "premerge": 5, 
-      "postmerge": 5,
-      "likeability": 3,
+      "premerge": 6, 
+      "postmerge": 3,
+      "likeability": 5,
       "gender": "male"
     },
     {
@@ -216,7 +216,7 @@
       "Season": "12, Survivor: Panama",
       "Age": 55,
       "Hometown": " Simsbury, CT",
-      "premerge": 7, 
+      "premerge": 8, 
       "postmerge": 8,
       "likeability": 8,
       "gender": "male"
@@ -227,8 +227,8 @@
       "Season": "18, Survivor: Tocantins",
       "Age": 36,
       "Hometown": " New York, NY",
-      "premerge": 5, 
-      "postmerge": 5,
+      "premerge": 6, 
+      "postmerge": 4,
       "likeability": 9,
       "gender": "male"
     },
@@ -239,7 +239,7 @@
       "Age": 39,
       "Hometown": " Denver, CO",
       "premerge": 7, 
-      "postmerge": 5,
+      "postmerge": 4,
       "likeability": 4,
       "gender": "male"
     },
@@ -249,9 +249,9 @@
       "Season": "24, Survivor: One World",
       "Age": 53,
       "Hometown": " Miami, FL",
-      "premerge": 7, 
+      "premerge": 6, 
       "postmerge": 7,
-      "likeability": 3,
+      "likeability": 2,
       "gender": "male"
     },
     {
@@ -272,8 +272,8 @@
       "Age": 46,
       "Hometown": " Tampa, FL",
       "premerge": 8, 
-      "postmerge": 5,
-      "likeability": 3,
+      "postmerge": 4,
+      "likeability": 2,
       "gender": "male"
     },
     {
@@ -295,7 +295,7 @@
       "Hometown": " Chicago, IL",
       "premerge": 7, 
       "postmerge": 9,
-      "likeability": 8,
+      "likeability": 9,
       "gender": "male"
     },
     {
@@ -337,8 +337,8 @@
       "Season": "30, Survivor: Worlds Apart",
       "Age": 38,
       "Hometown": "Topanga, CA",
-      "premerge": 8, 
-      "postmerge": 6,
+      "premerge": 7, 
+      "postmerge": 5,
       "likeability": 4,
       "gender": "male"
     },
