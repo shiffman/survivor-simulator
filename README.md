@@ -4,8 +4,24 @@ Can Survivor be quantified and simulated?
 
 http://survivorsimulator.com
 
-## Current status:
+## To-do list 
+* Update based on actual, fixed s31 cast.
+* Create option to swap in other casts.
+* Hidden Immunity idols (simulate hidden immunity idols)
+* Ability to configure season
+   * starting tribe (2 or 3 tribes)
+   * random swaps
+   * specify week of merge
+* Alliances
+   *  Each player has a probability of being aligned with (i.e. "voting with") every other player.
+   *  Each player has a probability of voting against their alliance.
+* Perceived threat level vs. actual threat level (make this a distinction)
+* Go over and revamp traits
+   * [Initial traits](https://github.com/shiffman/s-31-simulator/blob/gh-pages/players.json) - need feature for storing, reloading, linking to a cast.
+* Simulate special "2nd vote" power?
 
+
+## Current status:
 * Tribal immunity
     * Probability of a tribe winning immunity is tied to the sum of each player's "premerge" challenge rating.
 * Individual immunity
@@ -17,14 +33,6 @@ http://survivorsimulator.com
 * 2 tribes.
 * Merge at 12.
 * Jury of 9, final 3.
-
-## Planned features
-* Implement probabilities based on traits.
-   * [Initial traits](https://github.com/shiffman/s-31-simulator/blob/gh-pages/players.json) - need feature for storing, reloading, linking to a cast.
-* Swaps.
-* Hidden Immunity idols.
-* Simulated alliances.
-* [More here](https://github.com/shiffman/s-31-simulator/issues).
 
 ## Overall algorithm
 1. Randomly make two tribes, 5 men and 5 women.
