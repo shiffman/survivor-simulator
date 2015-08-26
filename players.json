@@ -28,19 +28,6 @@
     },
     {
       "id": 3,
-      "name": "Teresa T-Bird Cooper",
-      "Season": "3, Survivor: Africa",
-      "Age": 56,
-      "Hometown": "Jackson, GA",
-      "premerge": 5, 
-      "postmerge": 6,
-      "likeability": 8,
-      "threat": 5,
-      "strategicness": 5,
-      "gender": "female"
-    },
-    {
-      "id": 4,
       "name": "Peih-Gee Law",
       "Season": "15, Survivor: China",
       "Age": 37,
@@ -53,7 +40,7 @@
       "gender": "female"
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Monica Padilla",
       "Season": "19, Survivor: Samoa",
       "Age": 31,
@@ -66,59 +53,7 @@
       "gender": "female"
     },
     {
-      "id": 6,
-      "name": "Natalie Tenerelli",
-      "Season": "22, Survivor: Redemption Island",
-      "Age": 24,
-      "Hometown": " Studio City, CA",
-      "premerge": 4, 
-      "postmerge": 7,
-      "likeability": 8,
-      "threat": 5,
-      "strategicness": 5,
-      "gender": "female"
-    },
-    {
-      "id": 7,
-      "name": "Stephanie Valencia",
-      "Season": "22, Survivor: Redemption Island",
-      "Age": 30,
-      "Hometown": " San Diego, CA",
-      "premerge": 4, 
-      "postmerge": 4,
-      "likeability": 5,
-      "threat": 5,
-      "strategicness": 5,
-      "gender": "female"
-    },
-    {
-      "id": 8,
-      "name": "Mikayla Wingle",
-      "Season": "23, Survivor: South Pacific",
-      "Age": 25,
-      "Hometown": " Miami, FL",
-      "premerge": 6, 
-      "postmerge": 4,
-      "likeability": 4,
-      "threat": 5,
-      "strategicness": 5,
-      "gender": "female"
-    },
-    {
-      "id": 9,
-      "name": "Sabrina Thompson",
-      "Season": "24, Survivor: One World",
-      "Age": 37,
-      "Hometown": " Brooklyn, NY",
-      "premerge": 3, 
-      "postmerge": 3,
-      "likeability": 8,
-      "threat": 5,
-      "strategicness": 5,
-      "gender": "female"
-    },
-    {
-      "id": 10,
+      "id": 5,
       "name": "Abi-Maria Gomes",
       "Season": "25, Survivor: Philippines",
       "Age": 35,
@@ -131,7 +66,7 @@
       "gender": "female"
     },
     {
-      "id": 11,
+      "id": 6,
       "name": "Ciera Eastin",
       "Season": "27, Survivor: Blood vs. Water",
       "Age": 26,
@@ -144,7 +79,7 @@
       "gender": "female"
     },
     {
-      "id": 12,
+      "id": 7,
       "name": "Tasha Fox",
       "Season": "28, Survivor: Cagayan",
       "Age": 38,
@@ -157,7 +92,7 @@
       "gender": "female"
     },
     {
-      "id": 13,
+      "id": 8,
       "name": "Kass McQuillen",
       "Season": "28, Survivor: Cagayan",
       "Age": 42,
@@ -170,7 +105,7 @@
       "gender": "female"
     },
     {
-      "id": 14,
+      "id": 9,
       "name": "Kelley Wentworth",
       "Season": "29, Survivor: San Juan del Sur",
       "Age": 28,
@@ -182,7 +117,7 @@
       "gender": "female"
     },
     {
-      "id": 15,
+      "id": 10,
       "name": "Shirin Oskooi",
       "Season": "30, Survivor: Worlds Apart",
       "Age": 32,
@@ -194,23 +129,10 @@
       "strategicness": 5,
       "gender": "female"
     },
-    {
-      "id": 16,
-      "name": "Carolyn Rivera",
-      "Season": "30, Survivor: Worlds Apart",
-      "Age": 53,
-      "Hometown": " Queens, NY",
-      "premerge": 4, 
-      "postmerge": 7,
-      "likeability": 4,
-      "threat": 5,
-      "strategicness": 5,
-      "gender": "female"
-    }
   ],
   "men":[
     {
-      "id": 17,
+      "id": 11,
       "name": "Jeff Varner",
       "Season": "2, The Australian Outback",
       "Age": 49,
@@ -223,7 +145,7 @@
       "gender": "male"
     },
     {
-      "id": 18,
+      "id": 12,
       "name": "Andrew Savage",
       "Season": "7, Survivor: Pearl Islands",
       "Age": 51,
@@ -236,20 +158,7 @@
       "gender": "male"
     },
     {
-      "id": 19,
-      "name": "Shane Powers",
-      "Season": "12, Survivor: Panama",
-      "Age": 44,
-      "Hometown": " Los Angeles, CA",
-      "premerge": 6, 
-      "postmerge": 3,
-      "likeability": 5,
-      "threat": 5,
-      "strategicness": 5,
-      "gender": "male"
-    },
-    {
-      "id": 20,
+      "id": 13,
       "name": "Terry Deitz",
       "Season": "12, Survivor: Panama",
       "Age": 55,
@@ -262,7 +171,7 @@
       "gender": "male"
     },
     {
-      "id": 21,
+      "id": 14,
       "name": "Stephen Fishbach",
       "Season": "18, Survivor: Tocantins",
       "Age": 36,
@@ -275,33 +184,7 @@
       "gender": "male"
     },
     {
-      "id": 22,
-      "name": "Jim Rice",
-      "Season": "23, Survivor: South Pacific",
-      "Age": 39,
-      "Hometown": " Denver, CO",
-      "premerge": 7, 
-      "postmerge": 4,
-      "likeability": 4,
-      "threat": 5,
-      "strategicness": 5,
-      "gender": "male"
-    },
-    {
-      "id": 23,
-      "name": "Troyzan Robertson",
-      "Season": "24, Survivor: One World",
-      "Age": 53,
-      "Hometown": " Miami, FL",
-      "premerge": 6, 
-      "postmerge": 7,
-      "likeability": 2,
-      "threat": 5,
-      "strategicness": 5,
-      "gender": "male"
-    },
-    {
-      "id": 24,
+      "id": 15,
       "name": "Vytas Baskauskas",
       "Season": "27, Survivor: Blood vs. Water",
       "Age": 35,
@@ -314,20 +197,7 @@
       "gender": "male"
     },
     {
-      "id": 25,
-      "name": "Brad Culpepper",
-      "Season": "27, Survivor: Blood Vs. Water",
-      "Age": 46,
-      "Hometown": " Tampa, FL",
-      "premerge": 8, 
-      "postmerge": 4,
-      "likeability": 2,
-      "threat": 5,
-      "strategicness": 5,
-      "gender": "male"
-    },
-    {
-      "id": 26,
+      "id": 16,
       "name": "Woo Hwang",
       "Season": "28, Survivor: Cagayan",
       "Age": 31,
@@ -340,7 +210,7 @@
       "gender": "male"
     },
     {
-      "id": 27,
+      "id": 17,
       "name": "Spencer Bledsoe",
       "Season": "28, Survivor: Cagayan",
       "Age": 22,
@@ -353,7 +223,7 @@
       "gender": "male"
     },
     {
-      "id": 28,
+      "id": 18,
       "name": "Jeremy Collins",
       "Season": "29, Survivor: San Juan del Sur",
       "Age": 37,
@@ -366,7 +236,7 @@
       "gender": "male"
     },
     {
-      "id": 29,
+      "id": 19,
       "name": "Keith Nale",
       "Season": "29, Survivor: San Juan del Sur",
       "Age": 54,
@@ -379,7 +249,7 @@
       "gender": "male"
     },
     {
-      "id": 30,
+      "id": 20,
       "name": "Joe Anglim",
       "Season": "30, Survivor: Worlds Apart",
       "Age": 26,
@@ -391,31 +261,5 @@
       "strategicness": 5,
       "gender": "male"
     },
-    {
-      "id": 31,
-      "name": "Max Dawson",
-      "Season": "30, Survivor: Worlds Apart",
-      "Age": 38,
-      "Hometown": "Topanga, CA",
-      "premerge": 7, 
-      "postmerge": 5,
-      "likeability": 4,
-      "threat": 5,
-      "strategicness": 5,
-      "gender": "male"
-    },
-    {
-      "id": 32,
-      "name": "Mike Holloway",
-      "Season": "30, Survivor: Worlds Apart",
-      "Age": 38,
-      "Hometown": " Ft. Worth, TX",
-      "premerge": 9, 
-      "postmerge": 9,
-      "likeability": 8,
-      "threat": 5,
-      "strategicness": 5,
-      "gender": "male"
-    }
   ]
 }
