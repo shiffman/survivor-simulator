@@ -64,6 +64,9 @@
   display: none;
 }
 
+.castslider {
+  width: 90px;
+}
 
 #speedslider {
   width: 200px;
@@ -88,5 +91,9 @@
 .slidernumber {
   display: inline;
   padding-left: 5px;
+}
+
+#women table, #men table {
+  font-size: 94%;
 }
 

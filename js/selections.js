@@ -10,7 +10,11 @@ function voting(tribe, merged) {
         choices.push(i);
       }
       // Less chance of being voted out if you are likeable
-      for (n = 0; n < 10-player.like; n++) {
+      for (n = 0; n < 10-player.likeability; n++) {
+        choices.push(i);
+      }
+      // More chance of being voted out if you are perceived as threat to win
+      for (n = 0; n < 10-player.likeability; n++) {
         choices.push(i);
       }
     }
@@ -25,12 +29,12 @@ function voting(tribe, merged) {
       // When there are 6 or more
       if (tribe.length > 6) {
         // Less chance of being voted out if you are likeable
-        for (n = 0; n < 10-player.like; n++) {
+        for (n = 0; n < 10-player.likeability; n++) {
           choices.push(i);
         }
       } else {
         // More chance of being voted out if you are likeable
-        for (n = 0; n < player.like; n++) {
+        for (n = 0; n < player.likeability; n++) {
           choices.push(i);
         }
       }
@@ -47,6 +51,10 @@ function votingWinner(finalthree, jury) {
     finalthree[i].voteCount = 0;
     // More chances to be voted for the more likeable you are
     for (var n = 0; n < finalthree[i].likeability; n++) {
+      choices.push(i);
+    }
+    // More chances to be voted for the more strategic you are
+    for (var n = 0; n < finalthree[i].strategicness; n++) {
       choices.push(i);
     }
   }
