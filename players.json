@@ -128,7 +128,7 @@
       "threat": 5,
       "strategicness": 5,
       "gender": "female"
-    },
+    }
   ],
   "men":[
     {
@@ -260,6 +260,6 @@
       "threat": 5,
       "strategicness": 5,
       "gender": "male"
-    },
+    }
   ]
 }
