@@ -8,8 +8,8 @@ function sendToParse() {
   
   var ids = {};
   for (var i = 0; i < 10; i++) {
-    var wSel = getElement('women_'+i);
-    var mSel = getElement('men_'+i);
+    var wSel = select('#women_'+i);
+    var mSel = select('#men_'+i);
     var w = playerlookup[wSel.value()];
     var m = playerlookup[mSel.value()];
     data.men.push(m);
@@ -31,9 +31,9 @@ function sendToParse() {
   config.save(data).then(function(result) {
     id = result.id;
 
-    getElement('share').show();
+    select('#share').show();
 
-    var linky = getElement('permalink');
+    var linky = select('#permalink');
     var url = 'http://survivorsimulator.com/?id='+id;
 
     linky.html('<a href="' + url +'">' + url +'</a>');
@@ -57,7 +57,7 @@ function loadConfig() {
   var id = params.id;
 
   if (!id) {
-    loadJSON('players.json', function(data) {
+    loadJSON('/players.json', function(data) {
       players = data;
       startIt(true);
     });
@@ -85,7 +85,7 @@ function loadConfig() {
 
 
 function startIt(randomize) {
-  var speedSlider = getElement('speed');
+  var speedSlider = select('#speed');
   simSpeed = speedSlider.value();
   speedSlider.elt.oninput = function() {
     simSpeed = this.value;

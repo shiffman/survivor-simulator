@@ -12,22 +12,22 @@ function setup() {
   // Loading a saved config?
   loadConfig();
 
-  getElement('once').mousePressed(runonce);
-  getElement('loop').mousePressed(loopIt);
-  getElement('save').mousePressed(sendToParse);
+  select('#once').mousePressed(runonce);
+  select('#loop').mousePressed(loopIt);
+  select('#save').mousePressed(sendToParse);
 
-  getElement('hidetribeslink').mousePressed(function() {
-    getElement('hidetribes').hide();
-    getElement('showtribes').show();
-    getElement('tribe1').hide();
-    getElement('tribe2').hide();
+  select('#hidetribeslink').mousePressed(function() {
+    select('#hidetribes').hide();
+    select('#showtribes').show();
+    select('#tribe1').hide();
+    select('#tribe2').hide();
   });
 
-  getElement('showtribeslink').mousePressed(function() {
-    getElement('showtribes').hide();
-    getElement('hidetribes').show();
-    getElement('tribe1').show();
-    getElement('tribe2').show();
+  select('#showtribeslink').mousePressed(function() {
+    select('#showtribes').hide();
+    select('#hidetribes').show();
+    select('#tribe1').show();
+    select('#tribe2').show();
   });
 
  
@@ -72,8 +72,8 @@ function simulate() {
   loser = -1;
   week = 1;
 
-  getElement('simulation').show();
-  getElement('stats').show();
+  select('#simulation').show();
+  select('#stats').show();
   
   var women = [];
   var men = [];
@@ -84,7 +84,7 @@ function simulate() {
       gender = 'men';
       num -= 10;
     }
-    var name = getElement(gender + '_' + num);
+    var name = select('#'+gender + '_' + num);
     var player = playerlookup[name.value()];
     player.playing = true;
     if (gender === 'women') {
@@ -115,15 +115,15 @@ function simulate() {
   tribes[0] = tribe1;
   tribes[1] = tribe2;
   showTribes();
-  getElement('tribe1name').html("Tribe 1");
-  getElement('tribe2name').html("Tribe 2");
+  select('#tribe1name').html("Tribe 1");
+  select('#tribe2name').html("Tribe 2");
 
   
   go();
 }
 
 function go() {
-  var statusDiv = getElement('status');
+  var statusDiv = select('#status');
   if (!merged) {
     if (tribes[0].length + tribes[1].length === 12) {
       merged = true;
@@ -137,12 +137,12 @@ function go() {
       tribes[1] = [];
       statusDiv.html('Tribes are merged.');
       state = 'immunity';
-      getElement('tribe1name').html("Merge tribe");
-      getElement('tribe2name').html("Jury");
+      select('#tribe1name').html("Merge tribe");
+      select('#tribe2name').html("Jury");
     } else {
       var tribeDivs = [];
-      tribeDivs[0] = getElement('tribe1');
-      tribeDivs[1] = getElement('tribe2');
+      tribeDivs[0] = select('#tribe1');
+      tribeDivs[1] = select('#tribe2');
       if (state === 'immunity') {
         
         winner = tribalImmunity(tribes);
@@ -205,7 +205,7 @@ function go() {
       }
     } else {
       if (state === 'final') {
-        getElement('tribe1name').html("Final Three");
+        select('#tribe1name').html("Final Three");
         var soleSurvivor = votingWinner(tribes[0],tribes[1]);
         soleSurvivor.totalWins++;
         statusDiv.html("The sole survivor is " + soleSurvivor.name + "!");

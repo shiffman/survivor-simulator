@@ -9,36 +9,36 @@ function makeTable(gender) {
     };
   }
 
-  function updateRow(gender, index) {
-    return function() {
-      var player = playerlookup[this.value];
-      // we need to link the sliders in this row to this player
-      var preSlider = getElement(gender+'_premerge_'+index);
-      var postSlider = getElement(gender+'_postmerge_'+index);
-      var likeSlider = getElement(gender+'_likeability_'+index);
-      var threatSlider = getElement(gender+'_threat_'+index);
-      var strategySlider = getElement(gender+'_strategicness_'+index);
+  // function updateRow(gender, index) {
+  //   return function() {
+  //     var player = playerlookup[this.value];
+  //     // we need to link the sliders in this row to this player
+  //     var preSlider = getElement(gender+'_premerge_'+index);
+  //     var postSlider = getElement(gender+'_postmerge_'+index);
+  //     var likeSlider = getElement(gender+'_likeability_'+index);
+  //     var threatSlider = getElement(gender+'_threat_'+index);
+  //     var strategySlider = getElement(gender+'_strategicness_'+index);
 
-      preSlider.elt.linkedPlayer = player;
-      postSlider.elt.linkedPlayer = player;
-      likeSlider.elt.linkedPlayer = player;
-      threatSlider.elt.linkedPlayer = player;
-      strategySlider.elt.linkedPlayer = player;
+  //     preSlider.elt.linkedPlayer = player;
+  //     postSlider.elt.linkedPlayer = player;
+  //     likeSlider.elt.linkedPlayer = player;
+  //     threatSlider.elt.linkedPlayer = player;
+  //     strategySlider.elt.linkedPlayer = player;
       
-      // And reset their values
-      preSlider.value(player.premerge);
-      postSlider.value(player.postmerge);
-      likeSlider.value(player.likeability);
-      threatSlider.value(player.threat);
-      strategySlider.value(player.strategicness);
+  //     // And reset their values
+  //     preSlider.value(player.premerge);
+  //     postSlider.value(player.postmerge);
+  //     likeSlider.value(player.likeability);
+  //     threatSlider.value(player.threat);
+  //     strategySlider.value(player.strategicness);
       
-      getElement(gender+'_premerge_'+index+'_txt').html(player.premerge);
-      getElement(gender+'_postmerge_'+index+'_txt').html(player.postmerge);
-      getElement(gender+'_likeability_'+index+'_txt').html(player.likeability);
-      getElement(gender+'_threat_'+index+'_txt').html(player.threat);
-      getElement(gender+'_strategicness_'+index+'_txt').html(player.strategicness);
-    };
-  }
+  //     getElement(gender+'_premerge_'+index+'_txt').html(player.premerge);
+  //     getElement(gender+'_postmerge_'+index+'_txt').html(player.postmerge);
+  //     getElement(gender+'_likeability_'+index+'_txt').html(player.likeability);
+  //     getElement(gender+'_threat_'+index+'_txt').html(player.threat);
+  //     getElement(gender+'_strategicness_'+index+'_txt').html(player.strategicness);
+  //   };
+  // }
 
   function makeCell(player, row, label) {
     // Pre-merge challenge
@@ -70,17 +70,27 @@ function makeTable(gender) {
       list = players.men;
     }
     // Who is the player?
-    var sel = createElement('select');
-    sel.id(gender+'_'+i);
-    for (var j = 0; j < list.length; j++) {
-      var player = list[(j+i)%list.length];
-      var option = createElement('option',player.name);
-      option.attribute('value',player.id);
-      option.parent(sel);
-      sel.elt.onchange = updateRow(gender, i);
-    }
-    sel.parent(nameCell);
+    // Now just a div?
+
+    var div = createDiv(list[i].name);
+    div.style("font-size", "94%");
+    div.parent(nameCell);
+    div.id(gender+'_'+i);
+    div.value(list[i].id);
     nameCell.parent(row);
+
+
+    // var sel = createElement('select');
+    // sel.id(gender+'_'+i);
+    // for (var j = 0; j < list.length; j++) {
+    //   var player = list[(j+i)%list.length];
+    //   var option = createElement('option',player.name);
+    //   option.attribute('value',player.id);
+    //   option.parent(sel);
+    //   sel.elt.onchange = updateRow(gender, i);
+    // }
+    // sel.parent(nameCell);
+    // nameCell.parent(row);
     
     makeCell(list[i], row, 'premerge');
     makeCell(list[i], row, 'postmerge');
@@ -128,7 +138,7 @@ function makeTable(gender) {
 
 function showTribes() {
 
-  var elts = getElements('playerlisting');
+  var elts = selectAll('.playerlisting');
   for (var i = 0; i < elts.length; i++) {
     elts[i].remove();
   }
