@@ -5,20 +5,18 @@ Can Survivor be quantified and simulated?
 http://survivorsimulator.com
 
 ## To-do list 
-* Update based on actual, fixed s31 cast.
 * Create option to swap in other casts.
 * Hidden Immunity idols (simulate hidden immunity idols)
-* Ability to configure season
-   * starting tribe (2 or 3 tribes)
-   * random swaps
-   * specify week of merge
 * Alliances
    *  Each player has a probability of being aligned with (i.e. "voting with") every other player.
    *  Each player has a probability of voting against their alliance.
 * Perceived threat level vs. actual threat level (make this a distinction)
-* Go over and revamp traits
-   * [Initial traits](https://github.com/shiffman/s-31-simulator/blob/gh-pages/players.json) - need feature for storing, reloading, linking to a cast.
+* Ability to configure season
+   * starting tribe (2 or 3 tribes)
+   * random swaps
+   * specify week of merge
 * Simulate special "2nd vote" power?
+* Add probabilities from [Survivor Probability Doc](https://docs.google.com/document/d/1toe9FmKVzk1D4amNJlFWYsQPVoZ8DuPVUzr9zkLgYpU/edit)
 
 
 ## Current status:
