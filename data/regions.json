@@ -1,0 +1,56 @@
+[
+      {
+         "id":0,
+         "region":" Northwest",
+         "number":37,
+         "success":55.0
+      },
+      {
+         "id":1,
+         "region":"Midwest",
+         "number":33,
+         "success":53.6
+      },
+      {
+         "id":2,
+         "region":"New England",
+         "number":36,
+         "success":52.3
+      },
+      {
+         "id":3,
+         "region":"New York",
+         "number":46,
+         "success":51.0
+      },
+      {
+         "id":4,
+         "region":"Rust Belt",
+         "number":53,
+         "success":50.1
+      },
+      {
+         "id":5,
+         "region":"California",
+         "number":142,
+         "success":49.6
+      },
+      {
+         "id":6,
+         "region":"South",
+         "number":95,
+         "success":47.4
+      },
+      {
+         "id":7,
+         "region":"Southwest",
+         "number":41,
+         "success":46.5
+      },
+      {
+         "id":8,
+         "region":"East Coast",
+         "number":36,
+         "success":42.3
+      }
+   ]
