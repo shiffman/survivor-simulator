@@ -196,23 +196,23 @@ function showTribes() {
     playerlist[i].position = i;
   }
   
-  // // by total wins
-  // playerlist.sort(function(a, b) {
-  //   if (b.totalWins === a.totalWins) {
-  //     return a.position - b.position;
-  //   } else {
-  //     return b.totalWins - a.totalWins;
-  //   }
-  // });
-
-  // by avg finish
+  // by total wins
   playerlist.sort(function(a, b) {
-    if (b.avgplace === a.avgplace) {
+    if (b.totalWins === a.totalWins) {
       return a.position - b.position;
     } else {
-      return a.avgplace - b.avgplace;
+      return b.totalWins - a.totalWins;
     }
   });
+
+  // // by avg finish
+  // playerlist.sort(function(a, b) {
+  //   if (b.avgplace === a.avgplace) {
+  //     return a.position - b.position;
+  //   } else {
+  //     return a.avgplace - b.avgplace;
+  //   }
+  // });
   
   for (i = 0; i < playerlist.length; i++) {
     var player = playerlist[i];

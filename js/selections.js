@@ -14,18 +14,30 @@ function voting(tribe, merged) {
         choices.push(i);
       }
       // More chance of being voted out if you are perceived as threat to win
-      for (n = 0; n < 10-player.likeability; n++) {
+      for (n = 0; n < player.threat; n++) {
+        choices.push(i);
+      }
+      // Less chance of being voted out if you are good at strategy
+      for (n = 0; n < 10-player.strategicness; n++) {
         choices.push(i);
       }
     }
-    return choices[int(random(choices.length))];
   } else {
     for (var i = 0; i < tribe.length; i++) {
       var player = tribe[i];
-      // More chance of being voted out if you are good at challenges
-      for (var n = 0; n < player.postmerge; n++) {
+
+      // A lot more chance of being voted out if you are good at challenges
+      var exp = Math.pow(player.postmerge, 2);
+      for (var n = 0; n < exp; n++) {
         choices.push(i);
       }
+
+      // A lot more chance of being voted out if you are perceived as a threat
+      var exp = Math.pow(player.threat, 2);
+      for (var n = 0; n < exp; n++) {
+        choices.push(i);
+      }
+
       // When there are 6 or more
       if (tribe.length > 6) {
         // Less chance of being voted out if you are likeable
@@ -37,6 +49,11 @@ function voting(tribe, merged) {
         for (n = 0; n < player.likeability; n++) {
           choices.push(i);
         }
+      }
+      
+      // Less chance of being voted out if you are good at strategy
+      for (n = 0; n < 10-player.strategicness; n++) {
+        choices.push(i);
       }
     }
   }
