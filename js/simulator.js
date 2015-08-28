@@ -5,6 +5,19 @@ var playerlist = [];
 
 var totalSims = 0;
 
+var regions;
+var careers;
+var tribeData;
+
+var mode = 'configure';
+
+function preload() {
+  //console.log("preloading");
+  regions = loadJSON("/data/regions.json");
+  careers = loadJSON("/data/careers.json");
+  tribeData = loadJSON("/data/tribes.json");
+}
+
 function setup() {
   // Initializing parse
   Parse.initialize("26LC5jbUOlEdJE279EcxTuMZskZBiOvlmrYia715", "46bI6Y2aMNXkCXeoYOJ5DnlLCCZsxWX6W9xmAEB8");  noCanvas();
@@ -15,6 +28,24 @@ function setup() {
   select('#once').mousePressed(runonce);
   select('#loop').mousePressed(loopIt);
   select('#save').mousePressed(sendToParse);
+
+
+  select('#simulate').mousePressed(function() {
+    if (mode === 'configure') {
+      mode = 'simulate';
+      select('#header').html("Run the simulation.")
+      this.html("BACK TO CONFIGURE");
+      select('#simulationDiv').show();
+      select('#configureDiv').hide();
+      populateTribes();
+    } else {
+      mode = 'configure';
+      select('#header').html("Configure your cast.")
+      this.html("SIMULATE");
+      select('#simulationDiv').hide();
+      select('#configureDiv').show();
+    }
+  });
 
   select('#hidetribeslink').mousePressed(function() {
     select('#hidetribes').hide();
@@ -29,6 +60,7 @@ function setup() {
     select('#tribe1').show();
     select('#tribe2').show();
   });
+
 
  
 }
@@ -59,12 +91,12 @@ function loopIt() {
 
 function runonce() {
   looping = false;
+  populateTribes();
   simulate();
 }
 
-function simulate() {
-  totalSims++;
 
+function populateTribes() {
   tribes = [];
   merged = false;
   state = 'immunity';
@@ -97,28 +129,45 @@ function simulate() {
   var tribe1 = [];
   var tribe2 = [];
   
-  for (var i = 0; i < 5; i++) {
-    var pick1 = int(random(women.length));
-    tribe1.push(women[pick1]);
-    women.splice(pick1,1);
-
-    var pick2 = int(random(men.length));
-    tribe1.push(men[pick2]);
-    men.splice(pick2,1);
-  }
-
+  // Known tribes
   for (var i = 0; i < women.length; i++) {
-    tribe2.push(women[i]);
-    tribe2.push(men[i]);
+    if (women[i].tribe == 0) {
+      tribe1.push(women[i]);
+    } else {
+      tribe2.push(women[i]);      
+    }
+    if (men[i].tribe == 0) {
+      tribe1.push(men[i]);
+    } else {
+      tribe2.push(men[i]);      
+    }
   }
+
+  // For random tribes
+  // for (var i = 0; i < 5; i++) {
+  //   var pick1 = int(random(women.length));
+  //   tribe1.push(women[pick1]);
+  //   women.splice(pick1,1);
+
+  //   var pick2 = int(random(men.length));
+  //   tribe1.push(men[pick2]);
+  //   men.splice(pick2,1);
+  // }
+
+  // for (var i = 0; i < women.length; i++) {
+  //   tribe2.push(women[i]);
+  //   tribe2.push(men[i]);
+  // }
 
   tribes[0] = tribe1;
   tribes[1] = tribe2;
   showTribes();
-  select('#tribe1name').html("Tribe 1");
-  select('#tribe2name').html("Tribe 2");
+  select('#tribe1name').html(tribeData[0].name);
+  select('#tribe2name').html(tribeData[1].name);
+}
 
-  
+function simulate() {
+  totalSims++;  
   go();
 }
 
@@ -222,6 +271,7 @@ function go() {
   if (state === 'gameover') {
     if (looping) {
       // restarts the whole thing
+      populateTribes();
       simulate();
     }
   // In all other scenarios, advance the game one week

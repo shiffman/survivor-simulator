@@ -57,9 +57,9 @@ function loadConfig() {
   var id = params.id;
 
   if (!id) {
-    loadJSON('/players.json', function(data) {
+    loadJSON('/data/players.json', function(data) {
       players = data;
-      startIt(true);
+      startIt(false);
     });
   } else {
     // clean up params.id problem
@@ -76,7 +76,7 @@ function loadConfig() {
         console.log('ooops', error);
         loadJSON('players.json', function(data) {
           players = data;
-          startIt(true);
+          startIt(false);
         });
       }
     });
@@ -85,12 +85,12 @@ function loadConfig() {
 
 
 function startIt(randomize) {
-  var speedSlider = select('#speed');
-  simSpeed = speedSlider.value();
-  speedSlider.elt.oninput = function() {
-    simSpeed = this.value;
-  };
-  speedSlider.elt.oninput();
+  // var speedSlider = select('#speed');
+  // simSpeed = speedSlider.value();
+  // speedSlider.elt.oninput = function() {
+  //   simSpeed = this.value;
+  // };
+  // speedSlider.elt.oninput();
   
   // A lookup by id object
   // only works b/c same # of men and women
@@ -117,8 +117,8 @@ function startIt(randomize) {
     players.women = shuffle(players.women);
   }
 
-  makeTable('women');
-  makeTable('men');
+  makePlayerConfig('women');
+  makePlayerConfig('men');
 }
 
 // From: http://bost.ocks.org/mike/shuffle/

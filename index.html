@@ -40,91 +40,39 @@
 
   <h1>Survivor Simulator</h1>
 
+
   <p>This is a simulator for the game of survivor.</p>
 
-  <p>For <a href="https://github.com/shiffman/s-31-simulator/blob/gh-pages/README.md">how this works, visit the read me</a>.  The <a href="https://github.com/shiffman/s-31-simulator/blob/gh-pages/players.json">initial settings are stored here</a>. Please feel free <a href="https://github.com/shiffman/s-31-simulator">contribute to the code base here</a> or <a href="https://github.com/shiffman/s-31-simulator/issues">file bug reports and suggestions here</a>.  I am working on a way where you can save and share your configuration and results. You can find me on <a href="https://twitter.com/srvrsimulator">twitter</a>.
+  <p>For <a href="https://github.com/shiffman/s-31-simulator/blob/gh-pages/README.md">how this works, visit the read me</a>.  The <a href="https://github.com/shiffman/s-31-simulator/blob/gh-pages/data/">initial settings are stored here</a>. Please feel free <a href="https://github.com/shiffman/s-31-simulator">contribute to the code base here</a> or <a href="https://github.com/shiffman/s-31-simulator/issues">file bug reports and suggestions here</a>.  I am working on a way where you can save and share your configuration and results. You can find me on <a href="https://twitter.com/srvrsimulator">twitter</a>.
+
+
+  <div id="hidden">
+    <a href="https://twitter.com/share" id ="twittertemplate" class="twitter-share-button" data-url="http://customizethis" data-text="And the winner of Simulated Survivor is..." data-via="srvrsimulator" data-size="default" data-hashtags="survivor">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
 
   <div id="interface">
     <div id ="buttons">
-      <button id = "once" class="run">RUN ONCE</button>
-      <button id = "loop" class="run">RUN CONTINUOUSLY</button>
-      <div id="speedslider">slow <input type='range' min='0' max='100' value='100' id='speed'> fast</input></div>
-      <button id = "save" class="run">SAVE THIS CONFIGURATION</button>
-    </div>
- </div>
-
- <div id="share">
-
-    <p>You can copy the link below to revisit this configuration at any time:<br/><span id="permalink"></span><br/>
-
-    <div id="twitterbutton"></div>
-    </p>
-    
-
- </div>
-
- <div id="hidden">
-<a href="https://twitter.com/share" id ="twittertemplate" class="twitter-share-button" data-url="http://customizethis" data-text="And the winner of Simulated Survivor is..." data-via="srvrsimulator" data-size="default" data-hashtags="survivor">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
- </div>
-
-  <div id ="simulation">
-    <div id="status"></div>
-    <div id="showtribes" style ="float:right;display:none;"><a href="#" id="showtribeslink">show tribes</a></div>
-    <div id="tribe1" class="tribe">
-      <h2 id ="tribe1name">Tribe 1</h2>
-    </div>
-    <div id="tribe2" class="tribe">
-    <div id="hidetribes" style ="float:right;"><a href="#" id="hidetribeslink">hide tribes</a></div>
-      <h2 id ="tribe2name">Tribe 2</h2>
+      <div style="text-align:center;"><button id = "simulate" class="run configure bigbutton">SIMULATE</button>
+      <button id = "save" class="run bigbutton">SAVE THIS CONFIGURATION</button></p>
+      <div id="share" style="text-align:left;">
+        Copy the link below to revisit this configuration:<br/><span id="permalink"></span><br/>
+        <div id="twitterbutton"></div>
+        
+      </div>
     </div>
   </div>
 
-    <table id = "stats">
-      <tbody id="statsTable">
-        <tr>
-          <th>player</th>
-          <th>wins</th>
-          <th>average placement</th>
-          <th>merge frequency</th>
-          <th>individual immunities</th>
-          <th>team immunities</th>
-        </tr>
-      </tbody>
-    </table>
 
-
-  <h2>Configure your cast.</h2>
-
-  <div id="women">
-    <table id="womenCastTable">
-      <tbody id="womenCastTableBody">
-        <tr>
-          <th width="20%">women</th>
-          <th width="16%">challenge rating<br/>(pre-merge)</th>
-          <th width="16%">challenge rating<br/>(post-merge)</th>
-          <th width="16%">likeability</th>
-          <th width="16%">perceived threat level</th>
-          <th width="16%">strategy rating</th>
-        </tr>
-      </tbody>
-    </table>
   </div>
-  <div id="men">
-    <table id="menCastTable">
-      <tbody id="menCastTableBody">
-        <tr>
-          <th width="20%">women</th>
-          <th width="16%">challenge rating<br/>(pre-merge)</th>
-          <th width="16%">challenge rating<br/>(post-merge)</th>
-          <th width="16%">likeability</th>
-          <th width="16%">perceived threat level</th>
-          <th width="16%">strategy rating</th>    
-        </tr>
-      </tbody>
-    </table>
-  </div>
-<h2>Configure your season.</h2>
+
+  <div id = "configureDiv">
+    <h2 id ="header">Configure your cast.</h2>
+
+    <div id = "players" class="clearfix">
+    </div>
+
+    <h2>Configure your season.</h2>
 
     <p>Total cast: 
     <select>
@@ -153,7 +101,45 @@
     <select>
       <option value="3">3</option>
     </select> (only final 3 implemented)</p>
+  
+  </div>
+
+  <div id = "simulationDiv">
+    <div id="siminterface" style="text-align:center;">
+      <div id ="simbuttons" >
+        <button id = "once" class="run simulate bigbutton">RUN ONCE</button>
+        <button id = "loop" class="run simulate bigbutton">RUN CONTINUOUSLY</button>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top: 4px">
+        <div id="speedslider">slow <input type='range' min='0' max='100' value='100' id='speed'> fast</input></div>
+    </div>
     
+    <div id ="simulation">
+      <div id="status"></div>
+      <div id="showtribes" style ="float:right;display:none;"><a href="#" id="showtribeslink">show tribes</a></div>
+      <div id="tribe1" class="tribe">
+        <h2 id ="tribe1name">Tribe 1</h2>
+      </div>
+      <div id="tribe2" class="tribe">
+        <div id="hidetribes" style ="float:right;"><a href="#" id="hidetribeslink">hide tribes</a></div>
+        <h2 id ="tribe2name">Tribe 2</h2>
+      </div>
+
+      <table id = "stats">
+        <tbody id="statsTable">
+          <tr>
+            <th>player</th>
+            <th>wins</th>
+            <th>average placement</th>
+            <th>merge frequency</th>
+            <th>individual immunities</th>
+            <th>team immunities</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   </article>
 
 </body>

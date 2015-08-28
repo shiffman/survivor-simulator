@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <script src="lib/p5.js" type="text/javascript"></script>
+
+    <!-- Uncomment the lines below to include extra p5 libraries -->
+    <script src="lib/addons/p5.dom.js" type="text/javascript"></script>
+    <script src="lib/addons/p5.sound.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+    function setup() {
+      loadJSON('/data/players.json', function(data) {
+          console.log(data);
+        });
+    }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

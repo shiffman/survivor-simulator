@@ -1,5 +1,5 @@
 
-function makeTable(gender) {
+function makePlayerConfig(gender) {
   function updateCell(div, slider, prop) {
     return function() {
       // Update what the slider shows
@@ -40,101 +40,143 @@ function makeTable(gender) {
   //   };
   // }
 
-  function makeCell(player, row, label) {
+  function makeCell(player, row, label, num) {
     // Pre-merge challenge
     var slider = createSlider(1, 10, player[label]);
     var div = createDiv(slider.value());
-    var cell = createElement('td');
+
+    
+
+    labels = [];
+    labels.push('perceived threat level');
+    labels.push('challenge skill (pre-merge)');
+    labels.push('challenge skill (post-merge)');
+    labels.push('general likeability');
+    labels.push('strategy ability');
+
+    var cell = createDiv(labels[num] + ": ");
     //cell.style('text-align','center');
     slider.parent(cell);
     slider.class('castslider');
     div.parent(cell);
-    cell.parent(row);
     div.id(gender+ '_' + label + '_' +i+'_txt');
     div.class('slidernumber');
     slider.id(gender + '_' + label + '_'+i);
     slider.elt.oninput = updateCell(div, slider, label);
     // This is how we know which slider is attached to which player
     slider.elt.linkedPlayer = player;
+
+    cell.parent(row);
   }
 
-  for (var i = 0; i < 10; i++) {
-    var row = createElement('tr');
-    var nameCell = createElement('td');
+  var playersElt = select("#players");
+  var list = players.women;
+  if (gender === 'men') {
+    list = players.men;
+  }
+
+  function newCareer() {
+    this.player.career = this.value;
+  }
+  function newRegion() {
+    this.player.region = this.value;
+  }
+  function newTribe() {
+    this.player.tribe = this.value;
+  }
+  for (var i = 0; i < list.length; i++) {
+    //var row = createElement('tr');
+    //var nameCell = createElement('td');
     
     // <select>
     //   <option value="Stephen Fischbach">Stephen Fischbach</option> 
     // </select>
-    var list = players.women;
-    if (gender === 'men') {
-      list = players.men;
-    }
+
     // Who is the player?
     // Now just a div?
 
-    var div = createDiv(list[i].name);
-    div.style("font-size", "94%");
-    div.parent(nameCell);
+    var div = createDiv('');
+    var h4 = createElement('h4',list[i].name);
+    h4.parent(div);
+    // div.style("font-size", "94%");
+    div.parent(playersElt);
     div.id(gender+'_'+i);
     div.value(list[i].id);
-    nameCell.parent(row);
-
-
-    // var sel = createElement('select');
-    // sel.id(gender+'_'+i);
-    // for (var j = 0; j < list.length; j++) {
-    //   var player = list[(j+i)%list.length];
-    //   var option = createElement('option',player.name);
-    //   option.attribute('value',player.id);
-    //   option.parent(sel);
-    //   sel.elt.onchange = updateRow(gender, i);
-    // }
-    // sel.parent(nameCell);
-    // nameCell.parent(row);
+    div.class("player");
+    //nameCell.parent(row);
     
-    makeCell(list[i], row, 'premerge');
-    makeCell(list[i], row, 'postmerge');
-    makeCell(list[i], row, 'likeability');
-    makeCell(list[i], row, 'threat');
-    makeCell(list[i], row, 'strategicness');
-
-    // Post-merge challenge
-    // slider = createSlider(1,10, player.postmerge);
-    // div = createDiv(slider.value());
-    // slider.class('castslider');
-    // div.class('slidernumber');
-    // cell = createElement('td');
-    // //cell.style('text-align','center');
-    // slider.parent(cell);
-    // div.parent(cell);
-    // div.id(gender+'_postmerge_'+i+'_txt');
-    // cell.parent(row);
-    // slider.id(gender+'_postmerge_'+i);
-    // slider.elt.oninput = updateCell(div, slider, 'postmerge');
-    // slider.elt.linkedPlayer = player;
-
-    // // Likeability
-    // slider = createSlider(1,10,player.likeability);
-    // slider.class('castslider');
-    // div = createDiv(slider.value());
-    // div.class('slidernumber');
-    // cell = createElement('td');
-    // slider.parent(cell);
-    // div.parent(cell);
-    // cell.parent(row);
-    // div.id(gender+'_like_'+i+'_txt');
-    // slider.id(gender+'_like_'+i);
-    // slider.elt.oninput = updateCell(div, slider, 'likeability');
-    // slider.elt.linkedPlayer = player;
+    makeCell(list[i], div, 'premerge',0);
+    makeCell(list[i], div, 'postmerge',1);
+    makeCell(list[i], div, 'likeability',2);
+    makeCell(list[i], div, 'threat',3);
+    makeCell(list[i], div, 'strategicness',4);
 
 
-    if (gender === 'women') {
-      row.parent('womenCastTableBody');
-    } else {
-      row.parent('menCastTableBody');
+    var dropDiv = createDiv('career: ');
+    var dropdown = createSelect();
+    for (var j = 0; j < careers.length; j++) {
+      dropdown.option(careers[j].career, careers[j].id);
+    }
+    // Set what it starts as
+    dropdown.value(list[i].career);
+    dropdown.parent(dropDiv);
+    dropDiv.parent(div);
+    dropdown.elt.player = list[i];
+    dropdown.elt.onchange = newCareer;
+
+    var dropDiv = createDiv('region: ');
+    var dropdown = createSelect();
+    for (var j = 0; j < regions.length; j++) {
+      dropdown.option(regions[j].region, regions[j].id);
+    }
+    // Set what it starts as
+    dropdown.value(list[i].region);
+    dropdown.parent(dropDiv);
+    dropDiv.parent(div);
+    dropdown.elt.player = list[i];
+    dropdown.elt.onchange = newRegion;
+
+    var dropDiv = createDiv('tribe: ');
+    var dropdown = createSelect();
+    for (var j = 0; j < tribeData.length; j++) {
+      dropdown.option(tribeData[j].name, tribeData[j].id);
+    }
+    // Set what it starts as
+    dropdown.value(list[i].tribe);
+    // console.log(list[i].name);
+    // console.log(list[i].tribe);
+    dropdown.parent(dropDiv);
+    dropDiv.parent(div);
+    dropdown.elt.player = list[i];
+    dropdown.elt.onchange = newTribe;
+
+
+    var allies = createDiv('');
+    allies.parent(div);
+    var addAlly = createButton('add likely ally');
+    var comingsoon = createDiv('  coming soon');
+    comingsoon.style('color','#FFF');
+    comingsoon.style('display','inline');
+
+    addAlly.parent(allies);
+    comingsoon.parent(allies);
+    addAlly.mousePressed(makeAlly(list[i], allies, comingsoon));
+
+    // if (gender === 'women') {
+    //   row.parent('womenCastTableBody');
+    // } else {
+    //   row.parent('menCastTableBody');
+    // }
+  }
+
+  function makeAlly(player, div, comingsoon) {
+    return function() {
+      comingsoon.style('color','#000');
     }
   }
+
 }
+
 
 function showTribes() {
 

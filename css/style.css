@@ -5,15 +5,17 @@
   padding-top: 30px;
 }
 
+#save {
+  margin-bottom: 0px;
+}
+
 #simulation {
   width: 100%;
-  display: none;
   margin-top: 20px;
   font-size: 80%;
 }
 
 #stats {
-  display: none;
   background-color: #AAA;
   padding: 12px;
 
@@ -55,17 +57,36 @@
   font-size: 75%;
 }
 
-#share, #hidden {
-  margin-top: 8px;
-  padding: 6 12 6 12;
-  font-size: 80%;
-  background-color: #EEE;
-  margin-left: 438px;
-  display: none;
-}
+
+
 
 .castslider {
   width: 90px;
+}
+
+
+#players {
+
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.player {
+  width: 32%;
+  float: left;
+  font-size: 72%;
+  padding: 0px 16px 16px 16px;
+  margin-bottom:4px;
+  margin-right:4px;
+  position: relative;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #888;
+  line-height: 200%;
 }
 
 #speedslider {
@@ -83,6 +104,8 @@
   display: inline;
 }
 
+
+
 .run {
   padding: 12px;
   font-weight: bold;
@@ -95,5 +118,36 @@
 
 #women table, #men table {
   font-size: 94%;
+}
+
+.bigbutton {
+  padding: 16px;
+  width: 45%;
+  font-size: 24px;
+/*  margin-left: 25%;
+*/}
+
+#simulationDiv {
+  display: none;
+  margin-top: -12px;
+  height: 1040px;
+}
+
+#share, #hidden {
+  /*float: right;*/
+  position: relative;
+  margin-bottom: 12px;
+  padding: 6 12 6 12;
+  font-size: 80%;
+  background-color: #EEE;
+  margin-left: 50%;
+  display: none;
+  width: 45%;
+}
+
+#twitterbutton {
+  position: absolute;
+  top: 6px;
+  right: 6px;
 }
 
