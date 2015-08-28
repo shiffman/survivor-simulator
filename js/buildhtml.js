@@ -5,6 +5,8 @@ function makePlayerConfig(gender) {
       // Update what the slider shows
       // and the actual player's stored value
       div.html(slider.value());
+      //println(slider.value());
+      println(prop);
       slider.elt.linkedPlayer[prop] = slider.value();
     };
   }
@@ -46,12 +48,12 @@ function makePlayerConfig(gender) {
     var div = createDiv(slider.value());
 
     
-
+    // This isn't great, just works b/c right order
     labels = [];
-    labels.push('perceived threat level');
     labels.push('challenge skill (pre-merge)');
     labels.push('challenge skill (post-merge)');
     labels.push('general likeability');
+    labels.push('perceived threat level');
     labels.push('strategy ability');
 
     var cell = createDiv(labels[num] + ": ");
