@@ -1,15 +1,15 @@
 function sendToParse() {
-  var PlayerConfig = Parse.Object.extend("PlayerConfig");
+  var PlayerConfig = Parse.Object.extend('PlayerConfig');
   var config = new PlayerConfig();
 
   var data = {};
   data.men = [];
   data.women = [];
-  
+
   var ids = {};
   for (var i = 0; i < 10; i++) {
-    var wSel = select('#women_'+i);
-    var mSel = select('#men_'+i);
+    var wSel = select('#women_' + i);
+    var mSel = select('#men_' + i);
     var w = playerlookup[wSel.value()];
     var m = playerlookup[mSel.value()];
     data.men.push(m);
@@ -28,61 +28,65 @@ function sendToParse() {
   }
 
   var id;
-  config.save(data).then(function(result) {
+  config.save(data).then(function (result) {
     id = result.id;
 
     select('#share').show();
 
     var linky = select('#permalink');
-    var url = 'http://survivorsimulator.com/?id='+id;
+    var url = 'http://survivorsimulator.com/?id=' + id;
 
-    linky.html('<a href="' + url +'">' + url +'</a>');
+    linky.html('<a href="' + url + '">' + url + '</a>');
 
     $('#twitterbutton').html('&nbsp;');
     var whattosay = "Here's my simulation of #Survivor Season 31!";
-    $('#twitterbutton').html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="' + url +'" data-size="default" data-via="srvrsimulator" data-text="' + whattosay + '" data-count="none">Tweet</a>');
+    $('#twitterbutton').html(
+      '<a href="https://twitter.com/share" class="twitter-share-button" data-url="' +
+        url +
+        '" data-size="default" data-via="srvrsimulator" data-text="' +
+        whattosay +
+        '" data-count="none">Tweet</a>'
+    );
     twttr.widgets.load();
     //console.log('http://shiffman.net/s-31-simulator/'+id);
   });
 }
 
-
 var players;
 
 function loadConfig() {
-  var params = getURLParams();
-  var PlayerConfig = Parse.Object.extend("PlayerConfig");
-  var query = new Parse.Query(PlayerConfig);
-  
-  var id = params.id;
+  // var params = getURLParams();
+  // var PlayerConfig = Parse.Object.extend("PlayerConfig");
+  // var query = new Parse.Query(PlayerConfig);
 
-  if (!id) {
-    loadJSON('/data/players.json', function(data) {
-      players = data;
-      startIt(false);
-    });
-  } else {
-    // clean up params.id problem
-    if (id.charAt(id.length-1) === '/') {
-      id = id.substring(0, id.length - 1);
-    }
+  // var id = params.id;
 
-    query.get(id, {
-      success: function(config) {
-        players = config._serverData;
-        startIt(false);
-      },
-      error: function(object, error) {
-        console.log('ooops', error);
-        loadJSON('players.json', function(data) {
-          players = data;
-          startIt(false);
-        });
-      }
-    });
-  }
+  // if (!id) {
+  loadJSON('/data/players.json', function (data) {
+    players = data;
+    startIt(false);
+  });
+  // } else {
+  //   // clean up params.id problem
+  //   if (id.charAt(id.length-1) === '/') {
+  //     id = id.substring(0, id.length - 1);
+  //   }
+
+  //   query.get(id, {
+  //     success: function(config) {
+  //       players = config._serverData;
+  //       startIt(false);
+  //     },
+  //     error: function(object, error) {
+  //       console.log('ooops', error);
+  //       loadJSON('players.json', function(data) {
+  //         players = data;
+  //         startIt(false);
+  //       });
+  //     }
+  //   });
+  // }
 }
-
 
 function startIt(randomize) {
   // var speedSlider = select('#speed');
@@ -91,7 +95,7 @@ function startIt(randomize) {
   //   simSpeed = this.value;
   // };
   // speedSlider.elt.oninput();
-  
+
   // A lookup by id object
   // only works b/c same # of men and women
   for (var i = 0; i < players.men.length; i++) {
@@ -111,7 +115,7 @@ function startIt(randomize) {
     playerlist[i].avgplace = 0;
     playerlist[i].playing = false;
   }
-  
+
   if (randomize) {
     players.men = shuffle(players.men);
     players.women = shuffle(players.women);
@@ -123,11 +127,12 @@ function startIt(randomize) {
 
 // From: http://bost.ocks.org/mike/shuffle/
 function shuffle(array) {
-  var m = array.length, t, i;
+  var m = array.length,
+    t,
+    i;
 
   // While there remain elements to shuffle…
   while (m) {
-
     // Pick a remaining element…
     i = Math.floor(Math.random() * m--);
 

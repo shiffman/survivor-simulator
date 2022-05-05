@@ -13,14 +13,18 @@ var mode = 'configure';
 
 function preload() {
   //console.log("preloading");
-  regions = loadJSON("/data/regions.json");
-  careers = loadJSON("/data/careers.json");
-  tribeData = loadJSON("/data/tribes.json");
+  regions = loadJSON('/data/regions.json');
+  careers = loadJSON('/data/careers.json');
+  tribeData = loadJSON('/data/tribes.json');
 }
 
 function setup() {
   // Initializing parse
-  Parse.initialize("26LC5jbUOlEdJE279EcxTuMZskZBiOvlmrYia715", "46bI6Y2aMNXkCXeoYOJ5DnlLCCZsxWX6W9xmAEB8");  noCanvas();
+  // Parse.initialize(
+  //   '26LC5jbUOlEdJE279EcxTuMZskZBiOvlmrYia715',
+  //   '46bI6Y2aMNXkCXeoYOJ5DnlLCCZsxWX6W9xmAEB8'
+  // );
+  noCanvas();
 
   // Loading a saved config?
   loadConfig();
@@ -29,43 +33,38 @@ function setup() {
   select('#loop').mousePressed(loopIt);
   select('#save').mousePressed(sendToParse);
 
-
-  select('#simulate').mousePressed(function() {
+  select('#simulate').mousePressed(function () {
     if (mode === 'configure') {
       mode = 'simulate';
-      select('#header').html("Run the simulation.")
-      this.html("BACK TO CONFIGURE");
+      select('#header').html('Run the simulation.');
+      this.html('BACK TO CONFIGURE');
       select('#simulationDiv').show();
       select('#configureDiv').hide();
       populateTribes();
     } else {
       mode = 'configure';
-      select('#header').html("Configure your cast.")
-      this.html("SIMULATE");
+      select('#header').html('Configure your cast.');
+      this.html('SIMULATE');
       select('#simulationDiv').hide();
       select('#configureDiv').show();
     }
   });
 
-  select('#hidetribeslink').mousePressed(function() {
+  select('#hidetribeslink').mousePressed(function () {
     select('#hidetribes').hide();
     select('#showtribes').show();
     select('#tribe1').hide();
     select('#tribe2').hide();
   });
 
-  select('#showtribeslink').mousePressed(function() {
+  select('#showtribeslink').mousePressed(function () {
     select('#showtribes').hide();
     select('#hidetribes').show();
     select('#tribe1').show();
     select('#tribe2').show();
   });
-
-
- 
 }
 // function preload() {
-//   players = loadJSON('players.json');
 // }
 
 var tribes;
@@ -95,7 +94,6 @@ function runonce() {
   simulate();
 }
 
-
 function populateTribes() {
   tribes = [];
   merged = false;
@@ -106,7 +104,7 @@ function populateTribes() {
 
   select('#simulation').show();
   select('#stats').show();
-  
+
   var women = [];
   var men = [];
   for (var i = 0; i < 20; i++) {
@@ -116,7 +114,7 @@ function populateTribes() {
       gender = 'men';
       num -= 10;
     }
-    var name = select('#'+gender + '_' + num);
+    var name = select('#' + gender + '_' + num);
     var player = playerlookup[name.value()];
     player.playing = true;
     if (gender === 'women') {
@@ -128,18 +126,18 @@ function populateTribes() {
 
   var tribe1 = [];
   var tribe2 = [];
-  
+
   // Known tribes
   for (var i = 0; i < women.length; i++) {
     if (women[i].tribe == 0) {
       tribe1.push(women[i]);
     } else {
-      tribe2.push(women[i]);      
+      tribe2.push(women[i]);
     }
     if (men[i].tribe == 0) {
       tribe1.push(men[i]);
     } else {
-      tribe2.push(men[i]);      
+      tribe2.push(men[i]);
     }
   }
 
@@ -167,7 +165,7 @@ function populateTribes() {
 }
 
 function simulate() {
-  totalSims++;  
+  totalSims++;
   go();
 }
 
@@ -186,14 +184,13 @@ function go() {
       tribes[1] = [];
       statusDiv.html('Tribes are merged.');
       state = 'immunity';
-      select('#tribe1name').html("Merge tribe");
-      select('#tribe2name').html("Jury");
+      select('#tribe1name').html('Merge tribe');
+      select('#tribe2name').html('Jury');
     } else {
       var tribeDivs = [];
       tribeDivs[0] = select('#tribe1');
       tribeDivs[1] = select('#tribe2');
       if (state === 'immunity') {
-        
         winner = tribalImmunity(tribes);
         // Everybody gets a team win!
         for (var i = 0; i < tribes[winner].length; i++) {
@@ -205,11 +202,11 @@ function go() {
         //tribeDivs[winner].style('background-color','#00FF00');
         //tribeDivs[loser].style('background-color','#FF0000');
         state = 'tribal';
-        statusDiv.html('Tribe ' + (winner+1) + ' wins immunity!');
+        statusDiv.html('Tribe ' + (winner + 1) + ' wins immunity!');
       } else if (state === 'tribal') {
         var losingTribe = tribes[loser];
         var pick = voting(tribes[loser]);
-        
+
         // TODO: break out being voted out to function
         var out = losingTribe[pick];
         out.placement = 21 - week;
@@ -217,7 +214,7 @@ function go() {
         out.avgplace = out.sumplace / totalSims;
         week++;
 
-        losingTribe.splice(pick,1);
+        losingTribe.splice(pick, 1);
         statusDiv.html(out.name + ' voted out at tribal council!');
         state = 'immunity';
       }
@@ -235,7 +232,7 @@ function go() {
         // TODO: break this out into selection function?
         var immune = tribe[winner];
         var tribecopy = tribe.slice();
-        tribecopy.splice(winner,1);
+        tribecopy.splice(winner, 1);
         var out = voting(tribecopy);
 
         // TODO: break out being voted out to function
@@ -244,8 +241,8 @@ function go() {
         votedout.sumplace += votedout.placement;
         votedout.avgplace = votedout.sumplace / totalSims;
         week++;
-        
-        tribecopy.splice(out,1);
+
+        tribecopy.splice(out, 1);
         tribes[0] = tribecopy;
         tribes[0].push(immune);
         statusDiv.html(votedout.name + ' voted out at tribal council!');
@@ -254,19 +251,19 @@ function go() {
       }
     } else {
       if (state === 'final') {
-        select('#tribe1name').html("Final Three");
-        var soleSurvivor = votingWinner(tribes[0],tribes[1]);
+        select('#tribe1name').html('Final Three');
+        var soleSurvivor = votingWinner(tribes[0], tribes[1]);
         soleSurvivor.totalWins++;
-        statusDiv.html("The sole survivor is " + soleSurvivor.name + "!");
+        statusDiv.html('The sole survivor is ' + soleSurvivor.name + '!');
         state = 'gameover';
       } else {
         state = 'final';
-        statusDiv.html("Tallying final tribal votes!");
+        statusDiv.html('Tallying final tribal votes!');
       }
     }
   }
   showTribes();
-  var wait = map(simSpeed,1,100,1000,0);
+  var wait = map(simSpeed, 1, 100, 1000, 0);
   // finished
   if (state === 'gameover') {
     if (looping) {
@@ -274,11 +271,8 @@ function go() {
       populateTribes();
       simulate();
     }
-  // In all other scenarios, advance the game one week
+    // In all other scenarios, advance the game one week
   } else {
-    setTimeout(go,wait);
+    setTimeout(go, wait);
   }
 }
-
-
-
