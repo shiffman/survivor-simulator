@@ -13,9 +13,9 @@ var mode = 'configure';
 
 function preload() {
   //console.log("preloading");
-  regions = loadJSON('/data/regions.json');
-  careers = loadJSON('/data/careers.json');
-  tribeData = loadJSON('/data/tribes.json');
+  regions = loadJSON('data/regions.json');
+  careers = loadJSON('data/careers.json');
+  tribeData = loadJSON('data/tribes.json');
 }
 
 function setup() {
@@ -30,8 +30,8 @@ function setup() {
   loadConfig();
 
   select('#once').mousePressed(runonce);
-  select('#loop').mousePressed(loopIt);
-  select('#save').mousePressed(sendToParse);
+  select('#loopIt').mousePressed(loopIt);
+  // select('#saveIt').mousePressed(sendToParse);
 
   select('#simulate').mousePressed(function () {
     if (mode === 'configure') {

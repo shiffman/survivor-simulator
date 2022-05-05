@@ -62,7 +62,7 @@ function loadConfig() {
   // var id = params.id;
 
   // if (!id) {
-  loadJSON('/data/players.json', function (data) {
+  loadJSON('data/players.json', function (data) {
     players = data;
     startIt(false);
   });
@@ -117,8 +117,8 @@ function startIt(randomize) {
   }
 
   if (randomize) {
-    players.men = shuffle(players.men);
-    players.women = shuffle(players.women);
+    players.men = shuffleArray(players.men);
+    players.women = shuffleArray(players.women);
   }
 
   makePlayerConfig('women');
@@ -126,7 +126,7 @@ function startIt(randomize) {
 }
 
 // From: http://bost.ocks.org/mike/shuffle/
-function shuffle(array) {
+function shuffleArray(array) {
   var m = array.length,
     t,
     i;
