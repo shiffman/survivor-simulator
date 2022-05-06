@@ -2,7 +2,7 @@
 
 Can Survivor be quantified and simulated?
 
-http://survivorsimulator.com
+http://shiffman.github.io/survivor-simulator/
 
 ## To-do list 
 * Create option to swap in other casts.
